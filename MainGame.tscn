@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://0qdikfis7nf4"]
+
+[ext_resource type="Texture2D" uid="uid://bjtii3jv11v8v" path="res://icon.svg" id="1_e3m3f"]
+[ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://MainPlayer.gd" id="2_ws5ob"]
+
+[node name="MainGame" type="Node2D"]
+metadata/_edit_vertical_guides_ = [1282.0]
+
+[node name="MainPlayer" type="Sprite2D" parent="."]
+position = Vector2(175, 319)
+texture = ExtResource("1_e3m3f")
+script = ExtResource("2_ws5ob")
