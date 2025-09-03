@@ -1,12 +1,257 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://0qdikfis7nf4"]
 
 [ext_resource type="Texture2D" uid="uid://bjtii3jv11v8v" path="res://icon.svg" id="1_e3m3f"]
 [ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://MainPlayer.gd" id="2_ws5ob"]
+=======
+[gd_scene load_steps=13 format=3 uid="uid://0qdikfis7nf4"]
+
+[ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://submarino2.png" id="2_bqqt8"]
+[ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://MainPlayer.gd" id="2_ws5ob"]
+[ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://shark.gd" id="3_bqqt8"]
+[ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://SpriteShark.png" id="3_ws5ob"]
+[ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://spawner.gd" id="5_8qpgq"]
+[ext_resource type="PackedScene" uid="uid://bknfecrf0vo0e" path="res://hitbox.tscn" id="5_pv6b4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
+size = Vector2(138, 41.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pv6b4"]
+size = Vector2(41, 41.5625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5ji8"]
+size = Vector2(375.108, 103.603)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3hs3"]
+size = Vector2(1293.25, 464.188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dnxm"]
+size = Vector2(195, 662)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws5ob"]
+size = Vector2(85, 47)
+>>>>>>> gamebase/shark
 
 [node name="MainGame" type="Node2D"]
 metadata/_edit_vertical_guides_ = [1282.0]
 
+<<<<<<< HEAD
 [node name="MainPlayer" type="Sprite2D" parent="."]
 position = Vector2(175, 319)
 texture = ExtResource("1_e3m3f")
 script = ExtResource("2_ws5ob")
+=======
+[node name="Player" type="CharacterBody2D" parent="."]
+collision_mask = 23
+script = ExtResource("2_ws5ob")
+
+[node name="MainPlayer" type="Sprite2D" parent="Player"]
+position = Vector2(181, 316)
+scale = Vector2(0.157288, 0.158447)
+texture = ExtResource("2_bqqt8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(180, 329.5)
+shape = SubResource("RectangleShape2D_8qpgq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
+position = Vector2(190, 288)
+shape = SubResource("RectangleShape2D_pv6b4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Player"]
+position = Vector2(182, 359)
+scale = Vector2(0.157288, 0.158447)
+shape = SubResource("RectangleShape2D_x5ji8")
+
+[node name="Hurtbox" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hurtbox"]
+position = Vector2(181, 330)
+shape = SubResource("RectangleShape2D_8qpgq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/Hurtbox"]
+position = Vector2(190, 288)
+shape = SubResource("RectangleShape2D_pv6b4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Player/Hurtbox"]
+position = Vector2(185, 359)
+scale = Vector2(0.157288, 0.158447)
+shape = SubResource("RectangleShape2D_x5ji8")
+
+[node name="Border" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Border"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(646, -230.188)
+shape = SubResource("RectangleShape2D_v3hs3")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Border"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D2"]
+position = Vector2(638.625, 879.094)
+shape = SubResource("RectangleShape2D_v3hs3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Border"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D3"]
+position = Vector2(-96, 328)
+shape = SubResource("RectangleShape2D_8dnxm")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Border"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D4"]
+position = Vector2(1376, 333)
+shape = SubResource("RectangleShape2D_8dnxm")
+
+[node name="Enemies" type="Node2D" parent="." groups=["Enemies"]]
+
+[node name="Shark" type="Node2D" parent="Enemies"]
+
+[node name="Shark" type="CharacterBody2D" parent="Enemies/Shark" groups=["Enemies"]]
+position = Vector2(220, -192)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_bqqt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Shark/Shark"]
+position = Vector2(1265.38, 61.5)
+scale = Vector2(0.0668946, 0.0537109)
+texture = ExtResource("3_ws5ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark"]
+position = Vector2(1263.49, 61.5)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Hitbox" parent="Enemies/Shark/Shark" instance=ExtResource("5_pv6b4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark/Hitbox"]
+position = Vector2(1263.49, 61.5)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Shark2" type="CharacterBody2D" parent="Enemies/Shark" groups=["Enemies"]]
+position = Vector2(286, 37)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_bqqt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Shark/Shark2"]
+position = Vector2(1100, 61.5)
+scale = Vector2(0.0668946, 0.0537109)
+texture = ExtResource("3_ws5ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark2"]
+position = Vector2(1100, 61.5)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Hitbox" parent="Enemies/Shark/Shark2" instance=ExtResource("5_pv6b4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark2/Hitbox"]
+position = Vector2(1100, 61.5)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Shark3" type="CharacterBody2D" parent="Enemies/Shark" groups=["Enemies"]]
+position = Vector2(1114, 499)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_bqqt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Shark/Shark3"]
+position = Vector2(1100, 61.5)
+scale = Vector2(0.0668946, 0.0537109)
+texture = ExtResource("3_ws5ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark3"]
+position = Vector2(1100, 61.5)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Hitbox" parent="Enemies/Shark/Shark3" instance=ExtResource("5_pv6b4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark3/Hitbox"]
+position = Vector2(1100, 61.5)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Shark4" type="CharacterBody2D" parent="Enemies/Shark" groups=["Enemies"]]
+position = Vector2(637, 153)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_bqqt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Shark/Shark4"]
+position = Vector2(1100, 61.5)
+scale = Vector2(0.0668946, 0.0537109)
+texture = ExtResource("3_ws5ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark4"]
+position = Vector2(1100, 61.5)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Hitbox" parent="Enemies/Shark/Shark4" instance=ExtResource("5_pv6b4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark4/Hitbox"]
+position = Vector2(1100, 61.5)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Shark5" type="CharacterBody2D" parent="Enemies/Shark" groups=["Enemies"]]
+position = Vector2(496, 289)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_bqqt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Shark/Shark5"]
+position = Vector2(2104.38, 113.5)
+scale = Vector2(0.0668946, 0.0537109)
+texture = ExtResource("3_ws5ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark5"]
+position = Vector2(2106, 114)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Hitbox" parent="Enemies/Shark/Shark5" instance=ExtResource("5_pv6b4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark5/Hitbox"]
+position = Vector2(2106, 114)
+shape = SubResource("RectangleShape2D_ws5ob")
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(1344, 436)
+script = ExtResource("5_8qpgq")
+
+[node name="SpawnPoints" type="Node2D" parent="Spawner"]
+position = Vector2(10, -4)
+
+[node name="Spawn 1" type="Marker2D" parent="Spawner/SpawnPoints"]
+position = Vector2(355, -6)
+
+[node name="Spawn 2" type="Marker2D" parent="Spawner/SpawnPoints"]
+position = Vector2(104, -72)
+
+[node name="Spawn 3" type="Marker2D" parent="Spawner/SpawnPoints"]
+position = Vector2(224, -154)
+
+[node name="Spawn 4" type="Marker2D" parent="Spawner/SpawnPoints"]
+position = Vector2(-2, -230)
+
+[node name="Spawn 5" type="Marker2D" parent="Spawner/SpawnPoints"]
+position = Vector2(671, 44)
+
+[node name="Spawn 6" type="Marker2D" parent="Spawner/SpawnPoints"]
+position = Vector2(626, -103)
+
+[node name="Spawn 7" type="Marker2D" parent="Spawner/SpawnPoints"]
+position = Vector2(369, -324)
+
+[node name="Timer" type="Timer" parent="Spawner"]
+wait_time = 3.0
+autostart = true
+ignore_time_scale = true
+
+[connection signal="body_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+>>>>>>> gamebase/shark
