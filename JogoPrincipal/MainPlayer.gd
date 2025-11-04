@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 300
-var explosion = preload("res://explosion.tscn")
+var explosion = preload("res://JogoPrincipal/explosion.tscn")
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g2k7id0x0tnc"
-path="res://.godot/imported/submarino.png-00f36a0b3cb15251910bf5b2b5c15c01.ctex"
+uid="uid://cqiddta3ax6m0"
+path="res://.godot/imported/SpriteShark.png-1186ccc960b954ad19324c8b6392237c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://submarino.png"
-dest_files=["res://.godot/imported/submarino.png-00f36a0b3cb15251910bf5b2b5c15c01.ctex"]
+source_file="res://JogoPrincipal/SpriteShark.png"
+dest_files=["res://.godot/imported/SpriteShark.png-1186ccc960b954ad19324c8b6392237c.ctex"]
 
 [params]
 

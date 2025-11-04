@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqiddta3ax6m0"
-path="res://.godot/imported/SpriteShark.png-b68cf8281daa51f9a848adee1b71ad24.ctex"
+uid="uid://c1hw3ncxvk53q"
+path="res://.godot/imported/explosion.png-57200ab24b27fa3c9ab2588126897c5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpriteShark.png"
-dest_files=["res://.godot/imported/SpriteShark.png-b68cf8281daa51f9a848adee1b71ad24.ctex"]
+source_file="res://JogoPrincipal/Imagens/explosion.png"
+dest_files=["res://.godot/imported/explosion.png-57200ab24b27fa3c9ab2588126897c5c.ctex"]
 
 [params]
 

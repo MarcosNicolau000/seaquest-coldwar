@@ -1,17 +1,31 @@
-[gd_scene load_steps=13 format=3 uid="uid://0qdikfis7nf4"]
+[gd_scene load_steps=15 format=3 uid="uid://0qdikfis7nf4"]
 
-[ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://submarino2.png" id="2_bqqt8"]
-[ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://MainPlayer.gd" id="2_ws5ob"]
-[ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://shark.gd" id="3_bqqt8"]
-[ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://SpriteShark.png" id="3_ws5ob"]
-[ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://spawner.gd" id="5_8qpgq"]
-[ext_resource type="PackedScene" uid="uid://bknfecrf0vo0e" path="res://hitbox.tscn" id="5_pv6b4"]
+[ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://JogoPrincipal/Score.gd" id="1_8dnxm"]
+[ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://JogoPrincipal/submarino2.png" id="2_bqqt8"]
+[ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://JogoPrincipal/MainPlayer.gd" id="2_ws5ob"]
+[ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://JogoPrincipal/shark.gd" id="3_bqqt8"]
+[ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://JogoPrincipal/SpriteShark.png" id="3_ws5ob"]
+[ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://JogoPrincipal/spawner.gd" id="5_8qpgq"]
+[ext_resource type="PackedScene" uid="uid://bknfecrf0vo0e" path="res://JogoPrincipal/hitbox.tscn" id="5_pv6b4"]
+
+[sub_resource type="GDScript" id="GDScript_8dnxm"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
 size = Vector2(138, 41.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv6b4"]
-size = Vector2(41, 41.5625)
+size = Vector2(41, 42.7813)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5ji8"]
 size = Vector2(375.108, 103.603)
@@ -26,6 +40,7 @@ size = Vector2(195, 662)
 size = Vector2(85, 47)
 
 [node name="MainGame" type="Node2D"]
+script = SubResource("GDScript_8dnxm")
 metadata/_edit_vertical_guides_ = [1282.0]
 
 [node name="Player" type="CharacterBody2D" parent="."]
@@ -59,7 +74,7 @@ position = Vector2(181, 330)
 shape = SubResource("RectangleShape2D_8qpgq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/Hurtbox"]
-position = Vector2(190, 288)
+position = Vector2(190, 287.391)
 shape = SubResource("RectangleShape2D_pv6b4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Player/Hurtbox"]
@@ -238,6 +253,9 @@ position = Vector2(369, -324)
 wait_time = 3.0
 autostart = true
 ignore_time_scale = true
+
+[node name="GameLogic" type="Node" parent="."]
+script = ExtResource("1_8dnxm")
 
 [connection signal="body_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

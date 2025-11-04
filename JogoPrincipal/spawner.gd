@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var shark = preload("res://node_2d.tscn")
+@onready var shark = preload("res://JogoPrincipal/node_2d.tscn")
 @onready var spawn_points = $SpawnPoints.get_children()
 @onready var spawn_parent = get_node("../Enemies")
 

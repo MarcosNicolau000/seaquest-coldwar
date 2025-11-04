@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="seaquest-coldwar"
-run/main_scene="uid://0qdikfis7nf4"
+run/main_scene="uid://deltdgbei8vya"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://JogoPrincipal/icon.svg"
 
 [display]
 

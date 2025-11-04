@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1hw3ncxvk53q"
-path="res://.godot/imported/explosion.png-6d0afed533ce3819f16947e59d26d655.ctex"
+uid="uid://g2k7id0x0tnc"
+path="res://.godot/imported/submarino.png-759fc62fbdb38c12251280d1a2c9b284.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagens/explosion.png"
-dest_files=["res://.godot/imported/explosion.png-6d0afed533ce3819f16947e59d26d655.ctex"]
+source_file="res://JogoPrincipal/submarino.png"
+dest_files=["res://.godot/imported/submarino.png-759fc62fbdb38c12251280d1a2c9b284.ctex"]
 
 [params]
 
