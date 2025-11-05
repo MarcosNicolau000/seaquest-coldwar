@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g2k7id0x0tnc"
-path="res://.godot/imported/submarino.png-759fc62fbdb38c12251280d1a2c9b284.ctex"
+uid="uid://bjtii3jv11v8v"
+path="res://.godot/imported/icon.svg-20e51f96fc2f152e11e78e94eef417af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JogoPrincipal/submarino.png"
-dest_files=["res://.godot/imported/submarino.png-759fc62fbdb38c12251280d1a2c9b284.ctex"]
+source_file="res://MainGame/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-20e51f96fc2f152e11e78e94eef417af.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

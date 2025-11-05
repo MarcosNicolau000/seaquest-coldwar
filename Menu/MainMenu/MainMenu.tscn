@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://deltdgbei8vya"]
 
-[ext_resource type="Script" uid="uid://bj1wq5lp1j8tl" path="res://Menu/MenuScript.gd" id="1_uubjt"]
+[ext_resource type="Script" uid="uid://bj1wq5lp1j8tl" path="res://Menu/MainMenu/MainMenuScript.gd" id="1_sij70"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -24,6 +24,6 @@ offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Iniciar"
-script = ExtResource("1_uubjt")
+script = ExtResource("1_sij70")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

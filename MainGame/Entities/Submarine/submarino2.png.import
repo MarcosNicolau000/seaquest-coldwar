@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcwplvpctqmwo"
-path="res://.godot/imported/submarino2.png-f8c3e82bc6cca51674951fb926cccf72.ctex"
+path="res://.godot/imported/submarino2.png-f5eca2cbd2d8892b30c47c0233e2c390.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JogoPrincipal/submarino2.png"
-dest_files=["res://.godot/imported/submarino2.png-f8c3e82bc6cca51674951fb926cccf72.ctex"]
+source_file="res://MainGame/Entities/Submarine/submarino2.png"
+dest_files=["res://.godot/imported/submarino2.png-f5eca2cbd2d8892b30c47c0233e2c390.ctex"]
 
 [params]
 

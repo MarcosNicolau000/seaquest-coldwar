@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjtii3jv11v8v"
-path="res://.godot/imported/icon.svg-6dc4597b410cabdfca16f790430117a1.ctex"
+uid="uid://c1hw3ncxvk53q"
+path="res://.godot/imported/explosion.png-6198aafa5fd20329b23ff6729c3c61d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JogoPrincipal/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-6dc4597b410cabdfca16f790430117a1.ctex"]
+source_file="res://MainGame/Effects/explosion.png"
+dest_files=["res://.godot/imported/explosion.png-6198aafa5fd20329b23ff6729c3c61d2.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

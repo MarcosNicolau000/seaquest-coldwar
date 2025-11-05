@@ -1,13 +1,36 @@
 extends CharacterBody2D
 
 @export var speed = 300
-var explosion = preload("res://JogoPrincipal/explosion.tscn")
+var explosion = preload("res://MainGame/Effects/explosion.tscn")
+var elapsedTime = 0
+
+
+const OXYGEN_AREA = -160
+const SCORE_RATE = 5  
+const OXYGEN_INCREASE_RATE = 3
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	playerMovementKeyboard(delta)
+	if GameStartRoutine.isGameRunning:
+		playerMovementKeyboard(delta)
+		elapsedTime += delta	
+	
+		# SISTEMA DE OXIGÊNIO
+	
+		if ($".".position[1] < OXYGEN_AREA):
+			if (GameStartRoutine.oxygenCount < 100000):
+				GameStartRoutine.oxygenCount += elapsedTime * OXYGEN_INCREASE_RATE
+		else:
+			GameStartRoutine.oxygenCount -= elapsedTime
+
+	
+		# CONTADOR DE SCORE
+		GameStartRoutine.scoreCount = int(elapsedTime * SCORE_RATE)
+	
+		print(GameStartRoutine.oxygenCount)
+	
 	
 
 func playerMovementKeyboard(delta):
