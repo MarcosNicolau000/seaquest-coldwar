@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dy7uggn20rwdd"]
+[gd_scene load_steps=15 format=3 uid="uid://0qdikfis7nf4"]
 
 [ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://JogoPrincipal/GameStart/GameStartRoutine.gd" id="1_8dnxm"]
 [ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://JogoPrincipal/submarino2.png" id="2_bqqt8"]
-[ext_resource type="Script" path="res://JogoPrincipal/MainPlayer.gd" id="2_ws5ob"]
+[ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://JogoPrincipal/MainPlayer.gd" id="2_ws5ob"]
 [ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://JogoPrincipal/shark.gd" id="3_bqqt8"]
 [ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://JogoPrincipal/SpriteShark.png" id="3_ws5ob"]
 [ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://JogoPrincipal/spawner.gd" id="5_8qpgq"]
@@ -88,7 +88,7 @@ shape = SubResource("RectangleShape2D_x5ji8")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D"]
-position = Vector2(635, -132)
+position = Vector2(646, -230.188)
 shape = SubResource("RectangleShape2D_v3hs3")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Border"]
@@ -144,18 +144,18 @@ collision_mask = 2
 script = ExtResource("3_bqqt8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemies/Shark/Shark2"]
-position = Vector2(1115.38, 105.5)
+position = Vector2(1100, 61.5)
 scale = Vector2(0.0668946, 0.0537109)
 texture = ExtResource("3_ws5ob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark2"]
-position = Vector2(1115.38, 105.5)
+position = Vector2(1100, 61.5)
 shape = SubResource("RectangleShape2D_ws5ob")
 
 [node name="Hitbox" parent="Enemies/Shark/Shark2" instance=ExtResource("5_pv6b4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark2/Hitbox"]
-position = Vector2(1115.38, 105.5)
+position = Vector2(1100, 61.5)
 shape = SubResource("RectangleShape2D_ws5ob")
 
 [node name="Shark3" type="CharacterBody2D" parent="Enemies/Shark" groups=["Enemies"]]
@@ -247,7 +247,7 @@ position = Vector2(671, 44)
 position = Vector2(626, -103)
 
 [node name="Spawn 7" type="Marker2D" parent="Spawner/SpawnPoints"]
-position = Vector2(276, -234)
+position = Vector2(369, -324)
 
 [node name="Timer" type="Timer" parent="Spawner"]
 wait_time = 3.0
