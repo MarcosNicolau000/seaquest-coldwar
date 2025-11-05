@@ -1,25 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://dy7uggn20rwdd"]
 
 [ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="1_8dnxm"]
+[ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameScore.gd" id="1_fmpgn"]
 [ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://MainGame/Entities/Submarine/submarino2.png" id="2_bqqt8"]
 [ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://MainGame/Entities/Submarine/MainPlayer.gd" id="2_ws5ob"]
 [ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://MainGame/Entities/Shark/shark.gd" id="3_bqqt8"]
 [ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://MainGame/Entities/Shark/SpriteShark.png" id="3_ws5ob"]
 [ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://MainGame/Entities/Shark/spawner.gd" id="5_8qpgq"]
 [ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn" id="5_pv6b4"]
-
-[sub_resource type="GDScript" id="GDScript_8dnxm"]
-script/source = "extends Node2D
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
 size = Vector2(138, 41.5)
@@ -40,8 +28,14 @@ size = Vector2(195, 662)
 size = Vector2(85, 47)
 
 [node name="MainGame" type="Node2D"]
-script = SubResource("GDScript_8dnxm")
+script = ExtResource("1_fmpgn")
 metadata/_edit_vertical_guides_ = [1282.0]
+
+[node name="GameStart" type="Node" parent="."]
+script = ExtResource("1_8dnxm")
+
+[node name="PlayerDeath" type="Node" parent="."]
+script = ExtResource("1_fmpgn")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 collision_mask = 23
@@ -254,8 +248,7 @@ wait_time = 3.0
 autostart = true
 ignore_time_scale = true
 
-[node name="GameLogic" type="Node" parent="."]
-script = ExtResource("1_8dnxm")
+[node name="Node2" type="Node" parent="."]
 
 [connection signal="body_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

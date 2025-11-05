@@ -1,12 +1,15 @@
 extends Node
 
+const SCORE_RATE = 5  
+var elapsedTime = 0;
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	pass # Replace with function body.
+	pass 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if GameStartRoutine.isGameRunning:
+		elapsedTime += delta
+		GameStartRoutine.scoreCount = int(elapsedTime * SCORE_RATE)
+		print(GameStartRoutine.scoreCount)
 	pass

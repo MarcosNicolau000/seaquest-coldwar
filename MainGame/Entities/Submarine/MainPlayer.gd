@@ -13,23 +13,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	if GameStartRoutine.isGameRunning:
-		playerMovementKeyboard(delta)
-		elapsedTime += delta	
-	
-		# SISTEMA DE OXIGÊNIO
-	
-		if ($".".position[1] < OXYGEN_AREA):
-			if (GameStartRoutine.oxygenCount < 100000):
-				GameStartRoutine.oxygenCount += elapsedTime * OXYGEN_INCREASE_RATE
-		else:
-			GameStartRoutine.oxygenCount -= elapsedTime
-
-	
-		# CONTADOR DE SCORE
-		GameStartRoutine.scoreCount = int(elapsedTime * SCORE_RATE)
-	
-		print(GameStartRoutine.oxygenCount)
+	playerMovementKeyboard(delta)
 	
 	
 
