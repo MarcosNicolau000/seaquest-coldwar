@@ -8,6 +8,7 @@ var elapsedTime = 0
 const OXYGEN_AREA = -160
 const SCORE_RATE = 5  
 const OXYGEN_INCREASE_RATE = 3
+var playerHitted = false
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -15,7 +16,12 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	playerMovementKeyboard(delta)
 	
-	
+func disableHitbox():
+	if has_node("Hurtbox"):
+		var hurtbox = $Hurtbox
+		for shape in hurtbox.get_children():
+			if shape is CollisionShape2D:
+				shape.disabled = true
 
 func playerMovementKeyboard(delta):
 	var movement = Vector2.ZERO
@@ -31,12 +37,11 @@ func playerMovementKeyboard(delta):
 	position += movement * speed * delta
 	
 func player_death():
+	playerHitted = true
 	var deathEffect = explosion.instantiate() as Node2D
 	deathEffect.global_position = global_position
 	get_parent().add_child(deathEffect)
 	GameStartRoutine.gameLife -=1
-	set_process(false)
-	set_physics_process(false)
 	visible = false
 	await get_tree().create_timer(1.5).timeout
 	if GameStartRoutine.gameLife == 0:
@@ -46,7 +51,11 @@ func player_death():
 	queue_free()
 
 
-func _on_hurtbox_body_entered(body: Node2D) -> void:
+
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:	
 	if body.is_in_group("Enemies"):
-		player_death()
+		if !playerHitted:
+			player_death()
+			
 		

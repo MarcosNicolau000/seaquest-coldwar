@@ -18,7 +18,7 @@ config/icon="res://MainGame/icon.svg"
 [autoload]
 
 GameStartRoutine="*res://MainGame/GameFunctions/GameStartRoutine.gd"
-MainPlayer="*res://JogoPrincipal/MainPlayer.gd"
+MainPlayer="*res://MainGame/Entities/Submarine/MainPlayer.gd"
 
 [display]
 

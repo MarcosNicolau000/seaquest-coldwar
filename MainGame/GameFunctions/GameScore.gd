@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 	if GameStartRoutine.isGameRunning:
 		elapsedTime += delta
 		GameStartRoutine.scoreCount = int(elapsedTime * SCORE_RATE)
-		print(GameStartRoutine.scoreCount)
+		
 	pass
