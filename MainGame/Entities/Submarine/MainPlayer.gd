@@ -34,7 +34,17 @@ func player_death():
 	var deathEffect = explosion.instantiate() as Node2D
 	deathEffect.global_position = global_position
 	get_parent().add_child(deathEffect)
+	GameStartRoutine.gameLife -=1
+	set_process(false)
+	set_physics_process(false)
+	visible = false
+	await get_tree().create_timer(1.5).timeout
+	if GameStartRoutine.gameLife == 0:
+		get_tree().change_scene_to_file("res://Menu/LoserMenu/LoserMenu.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Menu/DeathMenu/DeathMenu.tscn")
 	queue_free()
+
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemies"):

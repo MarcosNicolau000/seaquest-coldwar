@@ -17,7 +17,6 @@ func start_game():
 	# VARIÁVEIS DE INÍCIO DE JOGO
 	gamePhase = 1
 	elapsed_time = 0 
-	scoreCount = 0
 	oxygenCount = 100000
 	isGameRunning = true
 	

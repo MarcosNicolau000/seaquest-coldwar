@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1m6oom5y6e7e"]
 
-[ext_resource type="Script" uid="uid://bj1wq5lp1j8tl" path="res://Menu/MainMenu/MainMenuScript.gd" id="1_dy4ti"]
+[ext_resource type="Script" uid="uid://b15hkx2i7xtba" path="res://Menu/DeathMenu/DeathMenu.gd" id="1_i7l66"]
 
 [node name="MenuDeath" type="Control"]
 layout_mode = 3
@@ -9,6 +9,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i7l66")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 181.0
+offset_right = 725.0
+offset_bottom = 221.0
+text = "Quantidade de Vidas"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -17,13 +26,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -117.0
-offset_top = -37.0
-offset_right = 118.0
-offset_bottom = 37.0
+offset_left = -161.5
+offset_top = -35.5
+offset_right = 161.5
+offset_bottom = 35.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Iniciar"
-script = ExtResource("1_dy4ti")
+text = "Continuar
+"
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.576
+anchor_top = 0.459
+anchor_right = 0.576
+anchor_bottom = 0.459
+offset_left = -149.28
+offset_top = -56.432
+offset_right = 148.24
+offset_bottom = 56.48
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
