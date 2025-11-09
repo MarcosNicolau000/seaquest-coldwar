@@ -68,10 +68,10 @@ animations = [{
 }]
 
 [node name="Explosion" type="Node2D"]
+position = Vector2(154, 292)
 script = ExtResource("1_vxas0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(181, 316)
 scale = Vector2(3.92708, 3.4375)
 sprite_frames = SubResource("SpriteFrames_4lvei")
 animation = &"Explosion"

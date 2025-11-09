@@ -1,17 +1,51 @@
 extends CharacterBody2D
 
 @export var speed = 300
+@onready var player_sprite = $playerSprite
+@onready var diver_label = $"../diverUI"
 var explosion = preload("res://MainGame/Effects/explosion.tscn")
 var elapsedTime = 0
+var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn")
 
+var diver_counter: int = 0
+const max_divers = 6
 
-const OXYGEN_AREA = -160
-const SCORE_RATE = 5  
+const fire_cooldown = 0.5
+var fire_timer = 0.0
+
+const OXYGEN_AREA = 150
+const SCORE_RATE = 5
 const OXYGEN_INCREASE_RATE = 3
 var playerHitted = false
 
-func _physics_process(delta: float) -> void:
+func _ready() -> void:
+	update_diver_ui()
+
+func _physics_process(delta) -> void:
+	if fire_timer > 0:
+		fire_timer -= delta
+	if Input.is_action_pressed("ui_accept") and fire_timer <= 0:
+		fire()
 	move_and_slide()
+	if global_position.y <= OXYGEN_AREA:
+		reset_divers()
+
+func reset_divers():
+	if diver_counter > 0:
+		GameStartRoutine.scoreCount += SCORE_RATE * diver_counter
+		set_diver(0)
+		print("Entregou: ", diver_counter, " mergulhadores.")
+		
+func fire():
+	fire_timer = fire_cooldown
+	var projectile = projectile_path.instantiate()
+	var spawn_point = $shootPos
+	if is_instance_valid(spawn_point):
+		projectile.global_position = spawn_point.global_position
+		if is_instance_valid(player_sprite):
+			projectile.should_flip = player_sprite.flip_h
+			
+		get_parent().add_child(projectile)
 
 func _process(delta: float) -> void:
 	playerMovementKeyboard(delta)
@@ -34,6 +68,11 @@ func playerMovementKeyboard(delta):
 	if Input.is_action_pressed("ui_up"):
 		movement.y -= 1
 	movement = movement.normalized()
+	if is_instance_valid(player_sprite):
+		if movement.x > 0:
+			player_sprite.flip_h = false
+		elif movement.x < 0:
+			player_sprite.flip_h = true
 	position += movement * speed * delta
 	
 func player_death():
@@ -50,12 +89,35 @@ func player_death():
 		get_tree().change_scene_to_file("res://Menu/DeathMenu/DeathMenu.tscn")
 	queue_free()
 
-
-
-
 func _on_hurtbox_body_entered(body: Node2D) -> void:	
 	if body.is_in_group("Enemies"):
 		if !playerHitted:
 			player_death()
-			
+	
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Diver"):
+		if diver_counter < max_divers:
+			set_diver(diver_counter + 1)
+			area.queue_free()
+		else:
+			pass
 		
+
+func set_diver(new_diver_count: int) -> void:
+	diver_counter = new_diver_count
+	update_diver_ui()
+			
+func update_diver_ui():
+	if not is_instance_valid(diver_label):
+		return
+	var template = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img][color=black][font_size=36]{contagem}[/font_size][/color] [color=black][font_size=32]X[/font_size][/color]"
+	
+	diver_label.text = template.format({
+		"contagem": str(diver_counter)
+	})
+		
+
+
+
+	
