@@ -31,6 +31,8 @@ func _physics_process(delta) -> void:
 	move_and_slide()
 	if global_position.y <= OXYGEN_AREA:
 		reset_divers()
+	else:
+		looseDiver = false
 
 func reset_divers():
 	if diver_counter == 6:
@@ -39,11 +41,9 @@ func reset_divers():
 		print("Entregou: ", diver_counter, " mergulhadores.")
 	elif diver_counter < 6 and diver_counter > 0:
 		if looseDiver == false:
-			looseDiver = true
+			
 			set_diver(diver_counter - 1)
-		else:
-			looseDiver = false
-
+			looseDiver = true
 
 func fire():
 	fire_timer = fire_cooldown
