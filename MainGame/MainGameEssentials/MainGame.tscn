@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dy7uggn20rwdd"]
+[gd_scene load_steps=19 format=3 uid="uid://dy7uggn20rwdd"]
 
 [ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://MainGame/Entities/Submarine/submarino2.png" id="2_bqqt8"]
 [ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="2_fmpgn"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dpr3y3sdjnxwv" path="res://MainGame/Background/Sea.png" id="9_mtwmo"]
 [ext_resource type="Texture2D" uid="uid://crow0ng10ixfx" path="res://MainGame/Background/Sky.png" id="10_d3y3c"]
 [ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/MainGameEssentials/spawnerDiver.gd" id="13_rvr5t"]
-[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/MainGameEssentials/spawnerDiver2.gd" id="14_l23oj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
 size = Vector2(139, 41.5)
@@ -157,8 +156,7 @@ position = Vector2(1263.49, 61.5)
 shape = SubResource("RectangleShape2D_ws5ob")
 
 [node name="Spawner" type="Node2D" parent="."]
-visible = false
-position = Vector2(1723, 441)
+position = Vector2(1344, 436)
 script = ExtResource("5_8qpgq")
 
 [node name="SpawnPoints" type="Node2D" parent="Spawner"]
@@ -192,7 +190,6 @@ autostart = true
 ignore_time_scale = true
 
 [node name="Spawner2" type="Node2D" parent="."]
-visible = false
 position = Vector2(-2164, 430)
 script = ExtResource("8_fmpgn")
 
@@ -227,7 +224,6 @@ autostart = true
 ignore_time_scale = true
 
 [node name="SpawnerDivers" type="Node2D" parent="."]
-visible = false
 position = Vector2(-937, 446)
 script = ExtResource("13_rvr5t")
 
@@ -261,57 +257,17 @@ wait_time = 10.0
 autostart = true
 ignore_time_scale = true
 
-[node name="SpawnerDivers2" type="Node2D" parent="."]
-visible = false
-position = Vector2(668, 436)
-script = ExtResource("14_l23oj")
-
-[node name="SpawnPoints2" type="Node2D" parent="SpawnerDivers2"]
-position = Vector2(10, -4)
-
-[node name="Spawn 1" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
-position = Vector2(673, -4.99999)
-rotation = -0.00275528
-
-[node name="Spawn 2" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
-position = Vector2(666, 118)
-
-[node name="Spawn 3" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
-position = Vector2(675, 48)
-
-[node name="Spawn 4" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
-position = Vector2(678, 176)
-
-[node name="Spawn 5" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
-position = Vector2(669, -81)
-
-[node name="Spawn 6" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
-position = Vector2(663, -149)
-
-[node name="Spawn 7" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
-position = Vector2(660, -209)
-
-[node name="Timer" type="Timer" parent="SpawnerDivers2"]
-wait_time = 10.0
-autostart = true
-ignore_time_scale = true
-
 [node name="diverUI" type="RichTextLabel" parent="."]
-offset_left = 1122.0
+offset_left = -12.0
 offset_top = 1.0
-offset_right = 1327.0
+offset_right = 193.0
 offset_bottom = 104.0
 bbcode_enabled = true
 text = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img]  [color=black][font_size=32]X[/font_size][/color]
 "
-
-[node name="lifeUI" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [connection signal="area_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner2/Timer" to="Spawner2" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnerDivers/Timer" to="SpawnerDivers" method="_on_timer_timeout"]
-[connection signal="timeout" from="SpawnerDivers2/Timer" to="SpawnerDivers2" method="_on_timer_timeout"]

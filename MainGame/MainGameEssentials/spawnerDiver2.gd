@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var diverSpawn = preload("res://MainGame/Entities/Diver/diver2.tscn")
+@onready var diverSpawn = preload("res://MainGame/Entities/Diver/diver.tscn")
 @onready var spawn_points = $SpawnPoints2.get_children()
 @onready var spawn_parent = get_tree().get_current_scene()
 
