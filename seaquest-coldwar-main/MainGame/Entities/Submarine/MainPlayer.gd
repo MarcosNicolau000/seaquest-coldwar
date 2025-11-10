@@ -3,10 +3,12 @@ extends CharacterBody2D
 @export var speed = 300
 @onready var player_sprite = $playerSprite
 @onready var diver_label = $"../diverUI"
+@onready var life_label = $"../lifeUI"
 var explosion = preload("res://MainGame/Effects/explosion.tscn")
 var elapsedTime = 0
 var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn")
 
+var looseDiver = false
 var diver_counter: int = 0
 const max_divers = 6
 
@@ -31,11 +33,18 @@ func _physics_process(delta) -> void:
 		reset_divers()
 
 func reset_divers():
-	if diver_counter > 0:
+	if diver_counter == 6:
 		GameStartRoutine.scoreCount += SCORE_RATE * diver_counter
 		set_diver(0)
 		print("Entregou: ", diver_counter, " mergulhadores.")
-		
+	elif diver_counter < 6 and diver_counter > 0:
+		if looseDiver == false:
+			looseDiver = true
+			set_diver(diver_counter - 1)
+		else:
+			looseDiver = false
+
+
 func fire():
 	fire_timer = fire_cooldown
 	var projectile = projectile_path.instantiate()
@@ -44,7 +53,6 @@ func fire():
 		projectile.global_position = spawn_point.global_position
 		if is_instance_valid(player_sprite):
 			projectile.should_flip = player_sprite.flip_h
-			
 		get_parent().add_child(projectile)
 
 func _process(delta: float) -> void:
@@ -59,13 +67,13 @@ func disableHitbox():
 
 func playerMovementKeyboard(delta):
 	var movement = Vector2.ZERO
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("right"):
 		movement.x += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("left"):
 		movement.x -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("baixo"):
 		movement.y += 1
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("cima"):
 		movement.y -= 1
 	movement = movement.normalized()
 	if is_instance_valid(player_sprite):
@@ -74,7 +82,7 @@ func playerMovementKeyboard(delta):
 		elif movement.x < 0:
 			player_sprite.flip_h = true
 	position += movement * speed * delta
-	
+
 func player_death():
 	playerHitted = true
 	var deathEffect = explosion.instantiate() as Node2D
@@ -93,7 +101,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemies"):
 		if !playerHitted:
 			player_death()
-	
+
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Diver"):
@@ -102,22 +110,18 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			area.queue_free()
 		else:
 			pass
-		
+
 
 func set_diver(new_diver_count: int) -> void:
 	diver_counter = new_diver_count
 	update_diver_ui()
-			
+	
+
+
 func update_diver_ui():
 	if not is_instance_valid(diver_label):
 		return
 	var template = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img][color=black][font_size=36]{contagem}[/font_size][/color] [color=black][font_size=32]X[/font_size][/color]"
-	
 	diver_label.text = template.format({
 		"contagem": str(diver_counter)
 	})
-		
-
-
-
-	
