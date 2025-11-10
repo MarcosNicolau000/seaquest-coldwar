@@ -99,6 +99,7 @@ position = Vector2(10, -29)
 shape = SubResource("RectangleShape2D_pv6b4")
 
 [node name="Border" type="Node2D" parent="."]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Border"]
 collision_layer = 4

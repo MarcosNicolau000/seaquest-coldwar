@@ -66,13 +66,13 @@ func disableHitbox():
 
 func playerMovementKeyboard(delta):
 	var movement = Vector2.ZERO
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("right"):
 		movement.x += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("left"):
 		movement.x -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("baixo"):
 		movement.y += 1
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("cima"):
 		movement.y -= 1
 	movement = movement.normalized()
 	if is_instance_valid(player_sprite):
@@ -81,7 +81,7 @@ func playerMovementKeyboard(delta):
 		elif movement.x < 0:
 			player_sprite.flip_h = true
 	position += movement * speed * delta
-	
+
 func player_death():
 	playerHitted = true
 	var deathEffect = explosion.instantiate() as Node2D
