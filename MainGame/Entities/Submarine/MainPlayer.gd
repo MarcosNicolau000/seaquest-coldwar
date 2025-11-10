@@ -16,7 +16,6 @@ var fire_timer = 0.0
 
 const OXYGEN_AREA = 150
 const SCORE_RATE = 5
-const OXYGEN_INCREASE_RATE = 3
 var playerHitted = false
 
 func _ready() -> void:
@@ -83,6 +82,7 @@ func playerMovementKeyboard(delta):
 	position += movement * speed * delta
 
 func player_death():
+	GameStartRoutine.isGameRunning = false
 	playerHitted = true
 	var deathEffect = explosion.instantiate() as Node2D
 	deathEffect.global_position = global_position
