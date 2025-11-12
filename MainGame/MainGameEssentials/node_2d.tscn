@@ -15,30 +15,24 @@ radius = 11.0454
 [node name="Shark" type="Node2D" parent="."]
 
 [node name="Shark" type="CharacterBody2D" parent="Shark" groups=["Enemies"]]
-position = Vector2(220, -192)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_0e48y")
 
 [node name="Sprite2D" type="Sprite2D" parent="Shark/Shark"]
-position = Vector2(1203.38, 286)
 scale = Vector2(0.0668946, 0.0537109)
 texture = ExtResource("2_epypp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/Shark"]
-position = Vector2(1215, 285)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Shark/Shark"]
-position = Vector2(1178, 287)
 shape = SubResource("CircleShape2D_epypp")
 
 [node name="Hitbox" parent="Shark/Shark" instance=ExtResource("3_epypp")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/Shark/Hitbox"]
-position = Vector2(1215, 285)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Shark/Shark/Hitbox"]
-position = Vector2(1178, 287)
 shape = SubResource("CircleShape2D_epypp")
