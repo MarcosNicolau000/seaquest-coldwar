@@ -22,7 +22,10 @@ MainPlayer="*res://MainGame/Entities/Submarine/MainPlayer.gd"
 
 [display]
 
-window/size/viewport_width=1280
+window/size/viewport_width=1366
+window/size/viewport_height=768
+window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [input]
 
