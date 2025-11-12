@@ -1,6 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://deltdgbei8vya"]
+[gd_scene load_steps=13 format=3 uid="uid://deltdgbei8vya"]
 
-[ext_resource type="Script" uid="uid://bj1wq5lp1j8tl" path="res://Menu/MainMenu/MainMenuScript.gd" id="1_sij70"]
+[ext_resource type="Texture2D" uid="uid://c2atwwj73mlwl" path="res://Menu/MainMenu/marine-art-painting-submarine-thumb1920.jpg" id="1_7mpft"]
+[ext_resource type="Script" uid="uid://dh4025anm2dmj" path="res://Menu/MainMenu/main_menu.gd" id="1_gxqt3"]
+[ext_resource type="Script" uid="uid://k6clu6v4ea3r" path="res://Menu/MainMenu/audio_control.gd" id="3_gxqt3"]
+[ext_resource type="Script" uid="uid://b1wf82lafy0ef" path="res://Menu/MainMenu/full_screen_control.gd" id="4_ddfq2"]
+[ext_resource type="AudioStream" uid="uid://dckp30ibo5ir" path="res://MainGame/Music/CrystalCavern.ogg" id="4_g1ub3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxqt3"]
+texture = ExtResource("1_7mpft")
+modulate_color = Color(0.419813, 0.419813, 0.419813, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1ub3"]
+bg_color = Color(0.662452, 0.662452, 0.662452, 1)
+border_color = Color(0.176419, 0.176419, 0.176419, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddfq2"]
+bg_color = Color(0.404511, 0.404511, 0.404511, 1)
+border_color = Color(0.176419, 0.176419, 0.176419, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sij70"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.176419, 0.176419, 0.176419, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7mpft"]
+color = Color(0.851769, 0.851769, 0.851769, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_gxqt3"]
+color = Color(0.177352, 0.314547, 0.769306, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g1ub3"]
+color = Color(0.177352, 0.314547, 0.769306, 1)
+thickness = 8
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,21 +56,173 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gxqt3")
 
-[node name="Button" type="Button" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gxqt3")
+
+[node name="Menu entrada" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -117.0
-offset_top = -37.0
-offset_right = 118.0
-offset_bottom = 37.0
+offset_left = -176.0
+offset_top = -93.0
+offset_right = 176.0
+offset_bottom = 177.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Iniciar"
-script = ExtResource("1_sij70")
+theme_override_constants/separation = 16
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="Iniciar" type="Button" parent="Menu entrada"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = SubResource("StyleBoxFlat_g1ub3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ddfq2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sij70")
+text = "Iniciar"
+
+[node name="Opcoes" type="Button" parent="Menu entrada"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = SubResource("StyleBoxFlat_g1ub3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ddfq2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sij70")
+text = "Opções"
+
+[node name="Sair" type="Button" parent="Menu entrada"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = SubResource("StyleBoxFlat_g1ub3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ddfq2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sij70")
+text = "Sair"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.0
+offset_top = -279.0
+offset_right = 399.0
+offset_bottom = -131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Seaquest: Coldwar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu opçoes" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -148.0
+offset_right = 217.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Voltar" type="Button" parent="Menu opçoes"]
+layout_mode = 2
+offset_left = 82.0
+offset_top = 315.0
+offset_right = 368.0
+offset_bottom = 384.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = SubResource("StyleBoxFlat_g1ub3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ddfq2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sij70")
+text = "Voltar"
+
+[node name="Label" type="Label" parent="Menu opçoes"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -215.0
+offset_right = 215.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+text = "Opções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioControl" type="HSlider" parent="Menu opçoes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -101.0
+offset_right = 158.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_7mpft")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_gxqt3")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_g1ub3")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("3_gxqt3")
+audio_bus_name = "Music"
+
+[node name="FullScreenControl" type="CheckButton" parent="Menu opçoes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.5
+offset_top = -46.0
+offset_right = 198.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+button_pressed = true
+text = "Tela Cheia"
+script = ExtResource("4_ddfq2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_g1ub3")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="Menu entrada/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Menu entrada/Iniciar" to="Menu entrada/Iniciar" method="_on_pressed"]
+[connection signal="pressed" from="Menu entrada/Opcoes" to="." method="_on_opcoes_pressed"]
+[connection signal="pressed" from="Menu entrada/Opcoes" to="Menu entrada/Iniciar" method="_on_opcoes_pressed"]
+[connection signal="pressed" from="Menu entrada/Opcoes" to="Menu entrada/Opcoes" method="_on_pressed"]
+[connection signal="pressed" from="Menu entrada/Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="Menu entrada/Sair" to="Menu entrada/Sair" method="_on_pressed"]
+[connection signal="pressed" from="Menu opçoes/Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="value_changed" from="Menu opçoes/AudioControl" to="Menu opçoes/AudioControl" method="_on_value_changed"]
+[connection signal="toggled" from="Menu opçoes/FullScreenControl" to="Menu opçoes/FullScreenControl" method="_on_toggled"]

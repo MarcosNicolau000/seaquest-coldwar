@@ -22,7 +22,7 @@ size = Vector2(139, 41.5)
 size = Vector2(41, 42.7813)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3hs3"]
-size = Vector2(1293.25, 464.188)
+size = Vector2(1293.25, 158.094)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dnxm"]
 size = Vector2(195, 662)
@@ -108,15 +108,15 @@ visible = false
 [node name="StaticBody2D" type="StaticBody2D" parent="Border"]
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D" groups=["Enemies"]]
-position = Vector2(638, -163)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(635, 21.047)
 shape = SubResource("RectangleShape2D_v3hs3")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Border"]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D2"]
-position = Vector2(638.625, 879.094)
+position = Vector2(640, 721)
 shape = SubResource("RectangleShape2D_v3hs3")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Border"]
@@ -260,6 +260,17 @@ position = Vector2(660, -209)
 wait_time = 10.0
 autostart = true
 ignore_time_scale = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 402.0
+offset_top = 16.0
+offset_right = 867.0
+offset_bottom = 48.0
+grow_vertical = 0
+size_flags_vertical = 4
 
 [node name="diverUI" type="RichTextLabel" parent="."]
 offset_left = -12.0
