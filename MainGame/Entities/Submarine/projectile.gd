@@ -17,10 +17,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity = initial_velocity
 	move_and_slide()
+	if global_position.x > 1300 or global_position.x < -100:
+		queue_free()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
 		if body and body.is_in_group("Enemies"):
 			body.queue_free()
+			GameStartRoutine.scoreCount += 100 
 			queue_free()
 			return
