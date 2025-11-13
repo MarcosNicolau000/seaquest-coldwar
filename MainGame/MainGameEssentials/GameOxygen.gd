@@ -14,4 +14,6 @@ func _process(delta: float) -> void:
 			GameStartRoutine.oxygenCount -= delta * 2
 		if GameStartRoutine.oxygenCount < 0:
 			$"../Player".player_death()	
+
+
 	
