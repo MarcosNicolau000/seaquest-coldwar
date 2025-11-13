@@ -3,19 +3,21 @@ extends CharacterBody2D
 @export var speed = 300
 @onready var player_sprite = $playerSprite
 @onready var diver_label = $"../diverUI"
+@onready var life_label = $"../lifeUI"
 var explosion = preload("res://MainGame/Effects/explosion.tscn")
 var elapsedTime = 0
 var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn")
 
+var looseDiver = false
 var diver_counter: int = 0
 const max_divers = 6
-var hasLostDiver = false
 
 const fire_cooldown = 0.5
 var fire_timer = 0.0
 
 const OXYGEN_AREA = 150
 const SCORE_RATE = 5
+const OXYGEN_INCREASE_RATE = 3
 var playerHitted = false
 
 func _ready() -> void:
@@ -30,7 +32,7 @@ func _physics_process(delta) -> void:
 	if global_position.y <= OXYGEN_AREA:
 		reset_divers()
 	else:
-		hasLostDiver = false
+		looseDiver = false
 
 func reset_divers():
 	if diver_counter == 6:
@@ -38,10 +40,11 @@ func reset_divers():
 		set_diver(0)
 		print("Entregou: ", diver_counter, " mergulhadores.")
 	elif diver_counter < 6 and diver_counter > 0:
-		if hasLostDiver == false:
+		if looseDiver == false:
+			
 			set_diver(diver_counter - 1)
-			hasLostDiver = true
-		
+			looseDiver = true
+
 func fire():
 	fire_timer = fire_cooldown
 	var projectile = projectile_path.instantiate()
@@ -50,7 +53,6 @@ func fire():
 		projectile.global_position = spawn_point.global_position
 		if is_instance_valid(player_sprite):
 			projectile.should_flip = player_sprite.flip_h
-			
 		get_parent().add_child(projectile)
 
 func _process(delta: float) -> void:
@@ -82,7 +84,6 @@ func playerMovementKeyboard(delta):
 	position += movement * speed * delta
 
 func player_death():
-	GameStartRoutine.isGameRunning = false
 	playerHitted = true
 	var deathEffect = explosion.instantiate() as Node2D
 	deathEffect.global_position = global_position
@@ -100,7 +101,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemies"):
 		if !playerHitted:
 			player_death()
-	
+
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Diver"):
@@ -109,22 +110,18 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			area.queue_free()
 		else:
 			pass
-		
+
 
 func set_diver(new_diver_count: int) -> void:
 	diver_counter = new_diver_count
 	update_diver_ui()
-			
+	
+
+
 func update_diver_ui():
 	if not is_instance_valid(diver_label):
 		return
 	var template = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img][color=black][font_size=36]{contagem}[/font_size][/color] [color=black][font_size=32]X[/font_size][/color]"
-	
 	diver_label.text = template.format({
 		"contagem": str(diver_counter)
 	})
-		
-
-
-
-	

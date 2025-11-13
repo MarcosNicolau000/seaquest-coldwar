@@ -9,11 +9,11 @@
 [ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://MainGame/Entities/Shark/spawner.gd" id="5_8qpgq"]
 [ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn" id="5_pv6b4"]
 [ext_resource type="Texture2D" uid="uid://c1d285pcilmjd" path="res://MainGame/Background/Ship.png" id="5_ymia7"]
-[ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="6_l23oj"]
 [ext_resource type="Script" uid="uid://btrjg0hsjqo1v" path="res://MainGame/Entities/Shark/spawner_2.gd" id="8_fmpgn"]
 [ext_resource type="Texture2D" uid="uid://dpr3y3sdjnxwv" path="res://MainGame/Background/Sea.png" id="9_mtwmo"]
 [ext_resource type="Texture2D" uid="uid://crow0ng10ixfx" path="res://MainGame/Background/Sky.png" id="10_d3y3c"]
 [ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/MainGameEssentials/spawnerDiver.gd" id="13_rvr5t"]
+[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/MainGameEssentials/spawnerDiver2.gd" id="14_l23oj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
 size = Vector2(139, 41.5)
@@ -22,7 +22,7 @@ size = Vector2(139, 41.5)
 size = Vector2(41, 42.7813)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3hs3"]
-size = Vector2(1293.25, 158.094)
+size = Vector2(1293.25, 464.188)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dnxm"]
 size = Vector2(195, 662)
@@ -58,9 +58,6 @@ texture = ExtResource("5_ymia7")
 
 [node name="GameStart" type="Node" parent="."]
 script = ExtResource("2_fmpgn")
-
-[node name="GameOxygen" type="Node" parent="."]
-script = ExtResource("6_l23oj")
 
 [node name="GameScore" type="Node" parent="."]
 script = ExtResource("2_fmpgn")
@@ -108,15 +105,15 @@ visible = false
 [node name="StaticBody2D" type="StaticBody2D" parent="Border"]
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D"]
-position = Vector2(635, 21.047)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D" groups=["Enemies"]]
+position = Vector2(638, -163)
 shape = SubResource("RectangleShape2D_v3hs3")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Border"]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D2"]
-position = Vector2(640, 721)
+position = Vector2(638.625, 879.094)
 shape = SubResource("RectangleShape2D_v3hs3")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Border"]
@@ -160,7 +157,8 @@ position = Vector2(1263.49, 61.5)
 shape = SubResource("RectangleShape2D_ws5ob")
 
 [node name="Spawner" type="Node2D" parent="."]
-position = Vector2(1344, 436)
+visible = false
+position = Vector2(1723, 441)
 script = ExtResource("5_8qpgq")
 
 [node name="SpawnPoints" type="Node2D" parent="Spawner"]
@@ -194,6 +192,7 @@ autostart = true
 ignore_time_scale = true
 
 [node name="Spawner2" type="Node2D" parent="."]
+visible = false
 position = Vector2(-2164, 430)
 script = ExtResource("8_fmpgn")
 
@@ -228,6 +227,7 @@ autostart = true
 ignore_time_scale = true
 
 [node name="SpawnerDivers" type="Node2D" parent="."]
+visible = false
 position = Vector2(-937, 446)
 script = ExtResource("13_rvr5t")
 
@@ -261,28 +261,57 @@ wait_time = 10.0
 autostart = true
 ignore_time_scale = true
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 402.0
-offset_top = 16.0
-offset_right = 867.0
-offset_bottom = 48.0
-grow_vertical = 0
-size_flags_vertical = 4
+[node name="SpawnerDivers2" type="Node2D" parent="."]
+visible = false
+position = Vector2(668, 436)
+script = ExtResource("14_l23oj")
+
+[node name="SpawnPoints2" type="Node2D" parent="SpawnerDivers2"]
+position = Vector2(10, -4)
+
+[node name="Spawn 1" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
+position = Vector2(673, -4.99999)
+rotation = -0.00275528
+
+[node name="Spawn 2" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
+position = Vector2(666, 118)
+
+[node name="Spawn 3" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
+position = Vector2(675, 48)
+
+[node name="Spawn 4" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
+position = Vector2(678, 176)
+
+[node name="Spawn 5" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
+position = Vector2(669, -81)
+
+[node name="Spawn 6" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
+position = Vector2(663, -149)
+
+[node name="Spawn 7" type="Marker2D" parent="SpawnerDivers2/SpawnPoints2"]
+position = Vector2(660, -209)
+
+[node name="Timer" type="Timer" parent="SpawnerDivers2"]
+wait_time = 10.0
+autostart = true
+ignore_time_scale = true
 
 [node name="diverUI" type="RichTextLabel" parent="."]
-offset_left = -12.0
+offset_left = 1122.0
 offset_top = 1.0
-offset_right = 193.0
+offset_right = 1327.0
 offset_bottom = 104.0
 bbcode_enabled = true
 text = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img]  [color=black][font_size=32]X[/font_size][/color]
 "
+
+[node name="lifeUI" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="area_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner2/Timer" to="Spawner2" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnerDivers/Timer" to="SpawnerDivers" method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnerDivers2/Timer" to="SpawnerDivers2" method="_on_timer_timeout"]
