@@ -296,8 +296,8 @@ script = ExtResource("16_jyt3h")
 
 [node name="Sunset" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(647, 233.75)
-scale = Vector2(0.885417, 0.830566)
+position = Vector2(677, 230.625)
+scale = Vector2(0.885417, 0.807861)
 texture = ExtResource("17_mxx3j")
 
 [connection signal="area_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_area_entered"]

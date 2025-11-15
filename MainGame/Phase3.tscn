@@ -1,18 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://cj34xrwq5r88f"]
+[gd_scene load_steps=19 format=3 uid="uid://krafla0oo10k"]
 
-[ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="1_4fe1n"]
-[ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://MainGame/Entities/Submarine/MainPlayer.gd" id="6_cpucp"]
-[ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://MainGame/Entities/Submarine/submarino2.png" id="7_iw6k1"]
-[ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://MainGame/Entities/Shark/shark.gd" id="8_n30dy"]
-[ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://MainGame/Entities/Shark/SpriteShark.png" id="9_qkpaj"]
-[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn" id="10_58b2c"]
-[ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://MainGame/Entities/Shark/spawner.gd" id="11_vivl0"]
-[ext_resource type="Script" uid="uid://btrjg0hsjqo1v" path="res://MainGame/Entities/Shark/spawner_2.gd" id="12_5ckdy"]
-[ext_resource type="Texture2D" uid="uid://b547ecxl7uwg0" path="res://MainGame/Background/Night.png" id="13_wc7s0"]
-[ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/MainGameEssentials/spawnerDiver.gd" id="13_xw6rd"]
-[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/MainGameEssentials/spawnerDiver2.gd" id="14_q7316"]
-[ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="15_eqdlf"]
-[ext_resource type="Script" uid="uid://b4e4sf2lqx8wt" path="res://MainGame/GameFunctions/GamePhases.gd" id="16_6wmle"]
+[ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="1_iys31"]
+[ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://MainGame/Entities/Submarine/MainPlayer.gd" id="6_hfc7n"]
+[ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://MainGame/Entities/Submarine/submarino2.png" id="7_5t887"]
+[ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://MainGame/Entities/Shark/shark.gd" id="8_bcvyc"]
+[ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://MainGame/Entities/Shark/SpriteShark.png" id="9_vll5o"]
+[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn" id="10_nkagq"]
+[ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://MainGame/Entities/Shark/spawner.gd" id="11_270te"]
+[ext_resource type="Script" uid="uid://btrjg0hsjqo1v" path="res://MainGame/Entities/Shark/spawner_2.gd" id="12_34x5t"]
+[ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/MainGameEssentials/spawnerDiver.gd" id="13_3kp5v"]
+[ext_resource type="Texture2D" uid="uid://dmvv6inxnb1j7" path="res://MainGame/Background/Sunset.png" id="13_cf4qf"]
+[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/MainGameEssentials/spawnerDiver2.gd" id="14_j6ml3"]
+[ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="15_s0ke1"]
+[ext_resource type="Script" uid="uid://b4e4sf2lqx8wt" path="res://MainGame/GameFunctions/GamePhases.gd" id="16_f5ne5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
 size = Vector2(139, 41.5)
@@ -30,16 +30,16 @@ size = Vector2(195, 662)
 size = Vector2(85, 47)
 
 [node name="MainGame" type="Node2D"]
-script = ExtResource("1_4fe1n")
+script = ExtResource("1_iys31")
 metadata/_edit_vertical_guides_ = [1282.0]
 
 [node name="Background" type="Node2D" parent="."]
 
 [node name="GameStart" type="Node" parent="."]
-script = ExtResource("1_4fe1n")
+script = ExtResource("1_iys31")
 
 [node name="GameScore" type="Node" parent="."]
-script = ExtResource("1_4fe1n")
+script = ExtResource("1_iys31")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
 top_level = true
@@ -47,14 +47,14 @@ light_mask = 512
 visibility_layer = 512
 position = Vector2(154, 292)
 collision_mask = 21
-script = ExtResource("6_cpucp")
+script = ExtResource("6_hfc7n")
 
 [node name="shootPos" type="Node2D" parent="Player"]
 position = Vector2(30, 42)
 
 [node name="playerSprite" type="Sprite2D" parent="Player"]
 scale = Vector2(0.157288, 0.158447)
-texture = ExtResource("7_iw6k1")
+texture = ExtResource("7_5t887")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 unique_name_in_owner = true
@@ -118,18 +118,18 @@ top_level = true
 position = Vector2(220, -192)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("8_n30dy")
+script = ExtResource("8_bcvyc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemies/Shark/Shark"]
 position = Vector2(1265.38, 61.5)
 scale = Vector2(0.0668946, 0.0537109)
-texture = ExtResource("9_qkpaj")
+texture = ExtResource("9_vll5o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark"]
 position = Vector2(1263.49, 61.5)
 shape = SubResource("RectangleShape2D_ws5ob")
 
-[node name="Hitbox" parent="Enemies/Shark/Shark" instance=ExtResource("10_58b2c")]
+[node name="Hitbox" parent="Enemies/Shark/Shark" instance=ExtResource("10_nkagq")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Shark/Shark/Hitbox"]
 position = Vector2(1263.49, 61.5)
@@ -138,7 +138,7 @@ shape = SubResource("RectangleShape2D_ws5ob")
 [node name="Spawner" type="Node2D" parent="."]
 visible = false
 position = Vector2(1723, 441)
-script = ExtResource("11_vivl0")
+script = ExtResource("11_270te")
 
 [node name="SpawnPoints" type="Node2D" parent="Spawner"]
 position = Vector2(136, -9)
@@ -173,7 +173,7 @@ ignore_time_scale = true
 [node name="Spawner2" type="Node2D" parent="."]
 visible = false
 position = Vector2(-2164, 430)
-script = ExtResource("12_5ckdy")
+script = ExtResource("12_34x5t")
 
 [node name="SpawnPoints" type="Node2D" parent="Spawner2"]
 position = Vector2(10, -4)
@@ -208,7 +208,7 @@ ignore_time_scale = true
 [node name="SpawnerDivers" type="Node2D" parent="."]
 visible = false
 position = Vector2(-937, 446)
-script = ExtResource("13_xw6rd")
+script = ExtResource("13_3kp5v")
 
 [node name="SpawnPoints2" type="Node2D" parent="SpawnerDivers"]
 position = Vector2(10, -4)
@@ -243,7 +243,7 @@ ignore_time_scale = true
 [node name="SpawnerDivers2" type="Node2D" parent="."]
 visible = false
 position = Vector2(668, 436)
-script = ExtResource("14_q7316")
+script = ExtResource("14_j6ml3")
 
 [node name="SpawnPoints2" type="Node2D" parent="SpawnerDivers2"]
 position = Vector2(10, -4)
@@ -289,16 +289,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="GameOxygen" type="Node" parent="."]
-script = ExtResource("15_eqdlf")
+script = ExtResource("15_s0ke1")
 
 [node name="GamePhases" type="Node" parent="."]
-script = ExtResource("16_6wmle")
+script = ExtResource("16_f5ne5")
 
-[node name="Night" type="Sprite2D" parent="."]
+[node name="Sunset" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(678, 242)
-scale = Vector2(0.970052, 0.804688)
-texture = ExtResource("13_wc7s0")
+position = Vector2(677, 230.625)
+scale = Vector2(0.885417, 0.807861)
+texture = ExtResource("13_cf4qf")
 
 [connection signal="area_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_body_entered"]
