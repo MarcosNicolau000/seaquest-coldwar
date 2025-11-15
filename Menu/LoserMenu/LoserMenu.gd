@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	GameStartRoutine.gameLife = 3
 	GameStartRoutine.gamePhase = 0
+	MainPlayer.diveWaveCount = 0
 	GameStartRoutine.isGameRunning = false
 	get_tree().change_scene_to_file("res://Menu/MainMenu/MainMenu.tscn")
 	pass # Replace with function body.
