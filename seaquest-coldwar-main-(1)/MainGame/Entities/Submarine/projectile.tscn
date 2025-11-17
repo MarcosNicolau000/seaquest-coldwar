@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://lbtv574jvo2d"]
+
+[ext_resource type="Script" uid="uid://bkiako342w7q7" path="res://MainGame/Entities/Submarine/projectile.gd" id="1_uvdew"]
+[ext_resource type="Texture2D" uid="uid://cvqbgdavvpink" path="res://MainGame/Entities/Submarine/Missile-Photoroom.png" id="2_o0ttq"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uvdew"]
+a = Vector2(-5, -6)
+b = Vector2(5, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o0ttq"]
+a = Vector2(17, 13)
+b = Vector2(7, 18)
+
+[node name="Projectile" type="CharacterBody2D" groups=["Player", "Projectile"]]
+position = Vector2(154, 292)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_uvdew")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Projectile"]]
+scale = Vector2(0.0737304, 0.0795898)
+texture = ExtResource("2_o0ttq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Projectile"]]
+position = Vector2(24, 1)
+shape = SubResource("SegmentShape2D_uvdew")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["Projectile"]]
+position = Vector2(12, -12)
+shape = SubResource("SegmentShape2D_o0ttq")

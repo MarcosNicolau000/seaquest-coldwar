@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjyhmpapu61k7"]
+
+[ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://MainGame/Entities/Shark/shark.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://MainGame/Entities/Shark/SpriteShark.png" id="2_epypp"]
+[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn" id="3_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(55, 38.75)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
+radius = 11.0454
+
+[node name="shark" type="Node2D"]
+scale = Vector2(1.13344, 1.37508)
+
+[node name="Shark" type="Node2D" parent="."]
+
+[node name="Shark" type="CharacterBody2D" parent="Shark" groups=["Enemies", "Shark"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_0e48y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shark/Shark"]
+scale = Vector2(0.0668946, 0.0537109)
+texture = ExtResource("2_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/Shark"]
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Shark/Shark"]
+shape = SubResource("CircleShape2D_epypp")
+
+[node name="Hitbox" parent="Shark/Shark" instance=ExtResource("3_epypp")]
+collision_layer = 18
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/Shark/Hitbox"]
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Shark/Shark/Hitbox"]
+shape = SubResource("CircleShape2D_epypp")
+
+[connection signal="area_entered" from="Shark/Shark/Hitbox" to="Shark/Shark" method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Shark/Shark/Hitbox" to="Shark/Shark" method="_on_hitbox_body_entered"]
