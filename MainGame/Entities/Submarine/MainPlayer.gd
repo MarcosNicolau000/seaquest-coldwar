@@ -9,12 +9,15 @@ var elapsedTime = 0
 var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn")
 
 var looseDiver = false
-var diver_counter: int = 5
-const max_divers = 6
+var diver_counter: int = 0
 var diveWaveCount = 0
+const max_divers = 6
+
 
 const fire_cooldown = 0.5
 var fire_timer = 0.0
+
+var actualPhase = 1
 
 const OXYGEN_AREA = 150
 const SCORE_RATE = 5
@@ -25,6 +28,8 @@ func _ready() -> void:
 	update_diver_ui()
 
 func _physics_process(delta) -> void:
+	if playerHitted:
+		return
 	if fire_timer > 0:
 		fire_timer -= delta
 	if Input.is_action_pressed("ui_accept") and fire_timer <= 0:
@@ -38,12 +43,11 @@ func _physics_process(delta) -> void:
 func reset_divers():
 	if diver_counter == 6:
 		GameStartRoutine.scoreCount += SCORE_RATE * diver_counter
-		diveWaveCount = diveWaveCount + 1
-		print("Entregou: ", diver_counter, " mergulhadores.")
-		print("WAVE COUNT " + str(diveWaveCount))
-
 		set_diver(0)
-		
+		diveWaveCount += 1
+		if diveWaveCount == 3:
+			changePhase()
+		print("Entregou: ", diver_counter, " mergulhadores.")
 	elif diver_counter < 6 and diver_counter > 0:
 		if looseDiver == false:
 			
@@ -116,12 +120,21 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		else:
 			pass
 
+func changePhase():
+	actualPhase += 1
+	match actualPhase:
+		1:
+			get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase1.tscn")
+		2:
+			get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase2.tscn")
+		3:
+			get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase3.tscn")
+
+
 
 func set_diver(new_diver_count: int) -> void:
 	diver_counter = new_diver_count
 	update_diver_ui()
-	
-
 
 func update_diver_ui():
 	if not is_instance_valid(diver_label):

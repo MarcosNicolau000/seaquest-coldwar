@@ -1,5 +1,6 @@
 extends Node
 
+
 var ActualPhase = 1
 var phaseString = "phase1"
 var phaseLink = {
@@ -8,10 +9,11 @@ var phaseLink = {
 	"phase3": "res://MainGame/GamePhases/Phase3.tscn",
 }
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass 
 
 func _process(delta: float) -> void:
+	print("a")
+	
 	if MainPlayer.diveWaveCount == 3:
 		print("ENTROU!")
 		ActualPhase += 1
