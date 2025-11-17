@@ -14,6 +14,6 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	GameStartRoutine.isGameRunning = true
 
-	get_tree().change_scene_to_file("res://MainGame/MainGameEssentials/MainGame.tscn")
+	get_tree().change_scene_to_file(GamePhases.phaseLink[GamePhases.phaseString])
 
 	pass # Replace with function body.

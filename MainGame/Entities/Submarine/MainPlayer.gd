@@ -9,7 +9,7 @@ var elapsedTime = 0
 var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn")
 
 var looseDiver = false
-var diver_counter: int = 0
+var diver_counter: int = 5
 const max_divers = 6
 var diveWaveCount = 0
 
@@ -38,9 +38,12 @@ func _physics_process(delta) -> void:
 func reset_divers():
 	if diver_counter == 6:
 		GameStartRoutine.scoreCount += SCORE_RATE * diver_counter
-		set_diver(0)
-		diveWaveCount += 1
+		diveWaveCount = diveWaveCount + 1
 		print("Entregou: ", diver_counter, " mergulhadores.")
+		print("WAVE COUNT " + str(diveWaveCount))
+
+		set_diver(0)
+		
 	elif diver_counter < 6 and diver_counter > 0:
 		if looseDiver == false:
 			

@@ -11,7 +11,7 @@ func _ready():
 
 
 func _on_iniciar_pressed() -> void:
-	get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase3.tscn")
+	get_tree().change_scene_to_file(GamePhases.phaseLink[GamePhases.phaseString])
 	
 func _on_opcoes_pressed() -> void:
 	menu_entrada.visible = false

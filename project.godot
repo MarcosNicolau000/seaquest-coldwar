@@ -19,6 +19,7 @@ config/icon="res://MainGame/icon.svg"
 
 GameStartRoutine="*res://MainGame/GameFunctions/GameStartRoutine.gd"
 MainPlayer="*res://MainGame/Entities/Submarine/MainPlayer.gd"
+GamePhases="*res://MainGame/GameFunctions/GamePhases.gd"
 
 [display]
 
