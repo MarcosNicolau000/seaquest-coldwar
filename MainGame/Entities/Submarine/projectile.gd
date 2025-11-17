@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var body = collision.get_collider()
 		if body and body.is_in_group("Enemies"):
-			body.queue_free()
-			GameStartRoutine.scoreCount += 100 
+			if body.has_method("shark_death"):
+				body.shark_death()
 			queue_free()
 			return

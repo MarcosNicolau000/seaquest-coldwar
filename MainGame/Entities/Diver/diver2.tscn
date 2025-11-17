@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://7ivethmq15my"]
 
-[ext_resource type="Script" uid="uid://bw8rvi7mirora" path="res://diver2.gd" id="1_22nna"]
+[ext_resource type="Script" uid="uid://bw8rvi7mirora" path="res://MainGame/Entities/Diver/diver2.gd" id="1_22nna"]
 [ext_resource type="Texture2D" uid="uid://ck50uyxjyqrj4" path="res://MainGame/Entities/Diver/MergulhadorA.png" id="2_fu0k5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkwcy"]
@@ -59,9 +59,9 @@ animations = [{
 [node name="containerDiver2" type="Area2D" groups=["Diver"]]
 light_mask = 32
 visibility_layer = 32
-scale = Vector2(2.16077, 1.87067)
-collision_layer = 32
-collision_mask = 32
+scale = Vector2(2.81699, 2.18463)
+collision_layer = 34
+collision_mask = 34
 script = ExtResource("1_22nna")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -78,3 +78,4 @@ sprite_frames = SubResource("SpriteFrames_1p5jh")
 autoplay = "default"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

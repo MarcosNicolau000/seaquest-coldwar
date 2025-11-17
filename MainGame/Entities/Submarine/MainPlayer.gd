@@ -11,7 +11,6 @@ var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn
 var looseDiver = false
 var diver_counter: int = 0
 const max_divers = 6
-var diveWaveCount = 0
 
 const fire_cooldown = 0.5
 var fire_timer = 0.0
@@ -25,6 +24,8 @@ func _ready() -> void:
 	update_diver_ui()
 
 func _physics_process(delta) -> void:
+	if playerHitted:
+		return
 	if fire_timer > 0:
 		fire_timer -= delta
 	if Input.is_action_pressed("ui_accept") and fire_timer <= 0:
@@ -39,7 +40,6 @@ func reset_divers():
 	if diver_counter == 6:
 		GameStartRoutine.scoreCount += SCORE_RATE * diver_counter
 		set_diver(0)
-		diveWaveCount += 1
 		print("Entregou: ", diver_counter, " mergulhadores.")
 	elif diver_counter < 6 and diver_counter > 0:
 		if looseDiver == false:
@@ -117,8 +117,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 func set_diver(new_diver_count: int) -> void:
 	diver_counter = new_diver_count
 	update_diver_ui()
-	
-
 
 func update_diver_ui():
 	if not is_instance_valid(diver_label):

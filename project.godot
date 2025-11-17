@@ -24,6 +24,12 @@ MainPlayer="*res://MainGame/Entities/Submarine/MainPlayer.gd"
 
 window/size/viewport_width=1280
 
+[global_group]
+
+Enemies=""
+Shark=""
+Player=""
+
 [input]
 
 up={

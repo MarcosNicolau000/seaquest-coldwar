@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://deltdgbei8vya"]
 
 [ext_resource type="Texture2D" uid="uid://c2atwwj73mlwl" path="res://Menu/MainMenu/marine-art-painting-submarine-thumb1920.jpg" id="1_7mpft"]
-[ext_resource type="Script" uid="uid://dh4025anm2dmj" path="res://Menu/MainMenu/MainMenuScript.gd" id="1_gxqt3"]
+[ext_resource type="Script" uid="uid://dh4025anm2dmj" path="res://Menu/MainMenu/main_menu.gd" id="1_gxqt3"]
 [ext_resource type="Script" uid="uid://k6clu6v4ea3r" path="res://Menu/MainMenu/audio_control.gd" id="3_gxqt3"]
 [ext_resource type="Script" uid="uid://b1wf82lafy0ef" path="res://Menu/MainMenu/full_screen_control.gd" id="4_ddfq2"]
 [ext_resource type="AudioStream" uid="uid://dckp30ibo5ir" path="res://MainGame/Music/CrystalCavern.ogg" id="4_g1ub3"]
