@@ -121,7 +121,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			pass
 
 func changePhase():
-	get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase2.tscn")
+	get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase3.tscn")
 	
 
 

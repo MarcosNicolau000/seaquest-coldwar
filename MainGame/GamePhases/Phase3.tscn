@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="1_eap5h"]
 [ext_resource type="Texture2D" uid="uid://b547ecxl7uwg0" path="res://MainGame/Background/Night.png" id="2_wc7s0"]
-[ext_resource type="Script" uid="uid://cbqtxxk2hcdb5" path="res://MainGame/Entities/Submarine/MainPlayer.gd" id="6_e40n4"]
+[ext_resource type="Script" uid="uid://dhos8lo0x576r" path="res://MainGame/GamePhases/MainPlayerPhase3.gd" id="3_wc7s0"]
 [ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://MainGame/Entities/Submarine/submarino2.png" id="7_xvdot"]
 [ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://MainGame/Entities/Shark/shark.gd" id="8_ugi10"]
 [ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://MainGame/Entities/Shark/SpriteShark.png" id="9_nxefy"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://MainGame/Entities/Shark/spawner.gd" id="11_iusrn"]
 [ext_resource type="Script" uid="uid://btrjg0hsjqo1v" path="res://MainGame/Entities/Shark/spawner_2.gd" id="12_6fn1e"]
 [ext_resource type="Script" uid="uid://q5woc8nrke" path="res://MainGame/Entities/Frigate/spawnerDestroyer.gd" id="13_nijbk"]
-[ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/Entities/Diver/spawnerDiver.gd" id="14_t6wum"]
-[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/Entities/Diver/spawnerDiver2.gd" id="15_5n0mk"]
+[ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/MainGameEssentials/spawnerDiver.gd" id="14_t6wum"]
+[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/MainGameEssentials/spawnerDiver2.gd" id="15_5n0mk"]
 [ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="16_ed5et"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
@@ -52,7 +52,7 @@ light_mask = 512
 visibility_layer = 512
 position = Vector2(154, 292)
 collision_mask = 21
-script = ExtResource("6_e40n4")
+script = ExtResource("3_wc7s0")
 
 [node name="shootPos" type="Node2D" parent="Player"]
 position = Vector2(30, 42)
