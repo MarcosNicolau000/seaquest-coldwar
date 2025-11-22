@@ -1,41 +1,32 @@
-[gd_scene load_steps=13 format=3 uid="uid://deltdgbei8vya"]
+[gd_scene load_steps=16 format=3 uid="uid://deltdgbei8vya"]
 
 [ext_resource type="Texture2D" uid="uid://c2atwwj73mlwl" path="res://Menu/MainMenu/marine-art-painting-submarine-thumb1920.jpg" id="1_7mpft"]
 [ext_resource type="Script" uid="uid://dh4025anm2dmj" path="res://Menu/MainMenu/main_menu.gd" id="1_gxqt3"]
+[ext_resource type="FontFile" uid="uid://bvvyyb512cnuw" path="res://MainGame/MainGameEssentials/Pixeled English Font.ttf" id="3_eqvia"]
 [ext_resource type="Script" uid="uid://k6clu6v4ea3r" path="res://Menu/MainMenu/audio_control.gd" id="3_gxqt3"]
 [ext_resource type="Script" uid="uid://b1wf82lafy0ef" path="res://Menu/MainMenu/full_screen_control.gd" id="4_ddfq2"]
+[ext_resource type="Texture2D" uid="uid://bncahg5fxq04g" path="res://Menu/MainMenu/Menu_frame_pressed.png" id="4_eqvia"]
 [ext_resource type="AudioStream" uid="uid://dckp30ibo5ir" path="res://MainGame/Music/CrystalCavern.ogg" id="4_g1ub3"]
+[ext_resource type="Texture2D" uid="uid://b7nku6qmki57t" path="res://Menu/MainMenu/Menu_frame.png" id="4_iopbn"]
+[ext_resource type="FontFile" uid="uid://cc8ga0ounv6ss" path="res://MainGame/MainGameEssentials/alagard.ttf" id="6_y1lu8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxqt3"]
 texture = ExtResource("1_7mpft")
 modulate_color = Color(0.419813, 0.419813, 0.419813, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1ub3"]
-bg_color = Color(0.662452, 0.662452, 0.662452, 1)
-border_color = Color(0.176419, 0.176419, 0.176419, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iopbn"]
+texture = ExtResource("4_eqvia")
+expand_margin_left = 30.0
+expand_margin_top = 10.0
+expand_margin_right = 30.0
+expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddfq2"]
-bg_color = Color(0.404511, 0.404511, 0.404511, 1)
-border_color = Color(0.176419, 0.176419, 0.176419, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sij70"]
-bg_color = Color(1, 1, 1, 1)
-border_color = Color(0.176419, 0.176419, 0.176419, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y1lu8"]
+texture = ExtResource("4_iopbn")
+expand_margin_left = 34.0
+expand_margin_top = 15.0
+expand_margin_right = 34.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_7mpft"]
 color = Color(0.851769, 0.851769, 0.851769, 1)
@@ -85,46 +76,53 @@ theme_override_constants/separation = 16
 [node name="Iniciar" type="Button" parent="Menu entrada"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
-theme_override_styles/hover = SubResource("StyleBoxFlat_g1ub3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ddfq2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_sij70")
+theme_override_fonts/font = ExtResource("3_eqvia")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_iopbn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_iopbn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_y1lu8")
 text = "Iniciar"
 
 [node name="Opcoes" type="Button" parent="Menu entrada"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
-theme_override_styles/hover = SubResource("StyleBoxFlat_g1ub3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ddfq2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_sij70")
-text = "Opções"
+theme_override_fonts/font = ExtResource("3_eqvia")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_iopbn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_iopbn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_y1lu8")
+text = "Options"
 
 [node name="Sair" type="Button" parent="Menu entrada"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_eqvia")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/hover = SubResource("StyleBoxFlat_g1ub3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ddfq2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_sij70")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iopbn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_iopbn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_y1lu8")
 text = "Sair"
 
 [node name="Label" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -399.0
-offset_top = -279.0
-offset_right = 426.0
-offset_bottom = -131.0
+offset_left = -401.0
+offset_top = -298.0
+offset_right = 424.0
+offset_bottom = -150.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.00979, 1.8328)
+theme_override_fonts/font = ExtResource("6_y1lu8")
 theme_override_font_sizes/font_size = 50
 text = "Seaquest: Coldwar
 "
@@ -147,16 +145,17 @@ grow_vertical = 2
 
 [node name="Voltar" type="Button" parent="Menu opçoes"]
 layout_mode = 2
-offset_left = 82.0
-offset_top = 315.0
-offset_right = 368.0
-offset_bottom = 384.0
+offset_left = 84.0
+offset_top = 292.0
+offset_right = 370.0
+offset_bottom = 361.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_eqvia")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/hover = SubResource("StyleBoxFlat_g1ub3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ddfq2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_sij70")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iopbn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_iopbn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_y1lu8")
 text = "Voltar"
 
 [node name="Label" type="Label" parent="Menu opçoes"]
@@ -168,8 +167,9 @@ offset_left = -215.0
 offset_right = 215.0
 offset_bottom = 66.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_eqvia")
 theme_override_font_sizes/font_size = 25
-text = "Opções"
+text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -208,6 +208,7 @@ offset_right = 198.5
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_eqvia")
 button_pressed = true
 text = "Tela Cheia"
 script = ExtResource("4_ddfq2")

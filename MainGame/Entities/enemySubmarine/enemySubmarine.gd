@@ -63,4 +63,5 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		submarine_death()
 		if body.is_in_group("Player"):
 			GameStartRoutine.add_score(300)
+			Statistics.add_enemy_submarine()
 			

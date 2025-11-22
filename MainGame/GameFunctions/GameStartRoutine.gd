@@ -8,6 +8,7 @@ var gamePhase = 0
 var oxygenCount = 100
 signal score_updated(new_score)
 
+
 func _ready() -> void:
 	start_game()
 

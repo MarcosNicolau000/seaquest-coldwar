@@ -26,6 +26,7 @@ const OXYGEN_INCREASE_RATE = 3
 var playerHitted = false
 
 func _ready() -> void:
+	Statistics.set_process(true)
 	update_diver_ui()
 	update_life_ui()
 
@@ -45,6 +46,7 @@ func _physics_process(delta) -> void:
 func reset_divers():
 	if diver_counter == 6:
 		GameStartRoutine.add_score(1000)
+		Statistics.add_rescued_diver()
 		set_diver(0)
 		diveWaveCount += 1
 		if diveWaveCount == 3:
@@ -52,6 +54,7 @@ func reset_divers():
 		print("Entregou: ", diver_counter, " mergulhadores.")
 	elif diver_counter < 6 and diver_counter > 0:
 		if looseDiver == false:
+			Statistics.add_lost_diver()
 			set_diver(diver_counter - 1)
 			looseDiver = true
 
@@ -99,6 +102,7 @@ func player_death():
 	deathEffect.global_position = global_position
 	get_parent().add_child(deathEffect)
 	GameStartRoutine.gameLife -=1
+	Statistics.add_death()
 	update_life_ui()
 	visible = false
 	await get_tree().create_timer(1.5).timeout

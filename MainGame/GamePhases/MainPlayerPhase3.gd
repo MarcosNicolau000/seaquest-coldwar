@@ -26,6 +26,7 @@ const OXYGEN_INCREASE_RATE = 3
 var playerHitted = false
 
 func _ready() -> void:
+	Statistics.set_process(true)
 	update_diver_ui()
 	update_life_ui()
 
