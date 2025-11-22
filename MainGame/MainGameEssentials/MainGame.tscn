@@ -349,6 +349,17 @@ bbcode_enabled = true
 text = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img]  [color=black][font_size=32]X[/font_size][/color]
 "
 
+[node name="diversGoal" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 1198.0
+offset_top = 78.0
+offset_right = 1317.0
+offset_bottom = 118.0
+scale = Vector2(0.97606, 1.33715)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("16_ipjxi")
+bbcode_enabled = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("16_mky77")
 

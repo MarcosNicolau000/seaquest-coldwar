@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdlp58oh7ho8v"]
+
+[ext_resource type="Script" uid="uid://b8g6cq2xeiefb" path="res://MainGame/GamePhases/NextLevel2.gd" id="1_5nu58"]
+[ext_resource type="Texture2D" uid="uid://c2atwwj73mlwl" path="res://Menu/MainMenu/marine-art-painting-submarine-thumb1920.jpg" id="1_nm4ty"]
+[ext_resource type="FontFile" uid="uid://cc8ga0ounv6ss" path="res://MainGame/MainGameEssentials/alagard.ttf" id="2_5nu58"]
+[ext_resource type="FontFile" uid="uid://bvvyyb512cnuw" path="res://MainGame/MainGameEssentials/Pixeled English Font.ttf" id="3_36g0s"]
+[ext_resource type="Texture2D" uid="uid://bncahg5fxq04g" path="res://Menu/MainMenu/Menu_frame_pressed.png" id="4_vwayh"]
+[ext_resource type="Texture2D" uid="uid://b7nku6qmki57t" path="res://Menu/MainMenu/Menu_frame.png" id="5_q32n5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_444nc"]
+texture = ExtResource("1_nm4ty")
+modulate_color = Color(0.419813, 0.419813, 0.419813, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qk2eu"]
+texture = ExtResource("4_vwayh")
+expand_margin_left = 30.0
+expand_margin_top = 10.0
+expand_margin_right = 30.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7vm4"]
+texture = ExtResource("4_vwayh")
+expand_margin_left = 30.0
+expand_margin_top = 10.0
+expand_margin_right = 30.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ola84"]
+texture = ExtResource("5_q32n5")
+expand_margin_left = 34.0
+expand_margin_top = 15.0
+expand_margin_right = 34.0
+expand_margin_bottom = 10.0
+
+[node name="NextLevel2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5nu58")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1281.0
+offset_bottom = 649.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_444nc")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 297.0
+offset_top = 66.0
+offset_right = 431.0
+offset_bottom = 83.0
+scale = Vector2(5.49722, 11.9487)
+theme_override_fonts/font = ExtResource("2_5nu58")
+text = "Fase 1 Concluida!"
+
+[node name="ProximaFase" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 444.0
+offset_top = 379.0
+offset_right = 820.0
+offset_bottom = 488.0
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_36g0s")
+theme_override_font_sizes/font_size = 39
+theme_override_styles/hover = SubResource("StyleBoxTexture_qk2eu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o7vm4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ola84")
+text = "Proxima Fase"
+
+[connection signal="pressed" from="ProximaFase" to="." method="_on_proxima_fase_pressed"]

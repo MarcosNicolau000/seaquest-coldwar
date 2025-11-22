@@ -13,6 +13,7 @@ var looseDiver = false
 var diver_counter: int = 0
 var diveWaveCount = 0
 const max_divers = 6
+var diverGoal = 0
 
 
 const fire_cooldown = 0.5
@@ -45,6 +46,7 @@ func _physics_process(delta) -> void:
 
 func reset_divers():
 	if diver_counter == 6:
+		diverGoal += 6
 		GameStartRoutine.add_score(1000)
 		Statistics.add_rescued_diver()
 		set_diver(0)
@@ -130,7 +132,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 
 func changePhase():
 	GameStartRoutine.gamePhase = 2
-	get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase2.tscn")
+	get_tree().change_scene_to_file("res://MainGame/GamePhases/NextLevel2.tscn")
 
 func set_diver(new_diver_count: int) -> void:
 	diver_counter = new_diver_count
@@ -143,7 +145,8 @@ func update_diver_ui():
 	diver_label.text = template.format({
 		"contagem": str(diver_counter)
 	})
-
+	$"../diversGoal".text = "Meta: " + str(diverGoal) + "/18"
+	
 func update_life_ui():
 	if not is_instance_valid(life_label):
 		return
