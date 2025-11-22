@@ -58,8 +58,8 @@ animations = [{
 
 [node name="diverContainer" type="Area2D" groups=["Diver"]]
 scale = Vector2(2.65487, 2.33432)
-collision_layer = 34
-collision_mask = 34
+collision_layer = 32
+collision_mask = 19
 script = ExtResource("1_4p42v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -71,6 +71,7 @@ position = Vector2(-1.09021, 4.12456)
 scale = Vector2(0.128284, 0.134796)
 sprite_frames = SubResource("SpriteFrames_mmpff")
 autoplay = "default"
+flip_h = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

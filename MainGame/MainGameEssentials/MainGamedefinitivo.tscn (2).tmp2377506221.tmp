@@ -1,4 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://bcfw0853adrhn"]
+<<<<<<< Updated upstream
+[gd_scene load_steps=22 format=3 uid="uid://bjfrwdv7l6cgq"]
+=======
+[gd_scene load_steps=26 format=3 uid="uid://bjfrwdv7l6cgq"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://MainGame/Entities/Submarine/submarino2.png" id="2_bqqt8"]
 [ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="2_fmpgn"]
@@ -7,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://MainGame/Entities/Shark/SpriteShark.png" id="3_ws5ob"]
 [ext_resource type="Texture2D" uid="uid://bmbnmrnuc1xym" path="res://MainGame/Background/Clouds.png" id="4_d3y3c"]
 [ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://MainGame/Entities/Shark/spawner.gd" id="5_8qpgq"]
-[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn.tscn" id="5_pv6b4"]
+[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn" id="5_pv6b4"]
 [ext_resource type="Texture2D" uid="uid://c1d285pcilmjd" path="res://MainGame/Background/Ship.png" id="5_ymia7"]
 [ext_resource type="Script" uid="uid://btrjg0hsjqo1v" path="res://MainGame/Entities/Shark/spawner_2.gd" id="8_fmpgn"]
 [ext_resource type="Texture2D" uid="uid://dpr3y3sdjnxwv" path="res://MainGame/Background/Sea.png" id="9_mtwmo"]
@@ -17,10 +21,9 @@
 [ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="15_01f1a"]
 [ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/Entities/Diver/spawnerDiver2.gd" id="15_s1m00"]
 [ext_resource type="FontFile" uid="uid://cc8ga0ounv6ss" path="res://MainGame/MainGameEssentials/alagard.ttf" id="16_ipjxi"]
-[ext_resource type="Script" path="res://MainGame/MainGameEssentials/scoreUI.gd" id="16_mky77"]
+[ext_resource type="Script" uid="uid://dic7iy6emmokx" path="res://MainGame/MainGameEssentials/scoreUI.gd" id="16_mky77"]
 [ext_resource type="Texture2D" uid="uid://cdoe3pqir00c3" path="res://MainGame/MainGameEssentials/Score_HUD.png" id="17_s1m00"]
 [ext_resource type="FontFile" uid="uid://bvvyyb512cnuw" path="res://MainGame/MainGameEssentials/Pixeled English Font.ttf" id="18_tarl8"]
-[ext_resource type="PackedScene" uid="uid://b4ucy2r43jip8" path="res://MainGame/Entities/enemySubmarine/enemy_submarine2.tscn" id="21_ontvv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
 size = Vector2(142.5, 41.5)
@@ -375,9 +378,6 @@ scale = Vector2(6.4143, 10.2733)
 theme_override_fonts/font = ExtResource("18_tarl8")
 text = "00000
 "
-
-[node name="enemySubmarine" parent="." instance=ExtResource("21_ontvv")]
-position = Vector2(690, 313)
 
 [connection signal="area_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_body_entered"]

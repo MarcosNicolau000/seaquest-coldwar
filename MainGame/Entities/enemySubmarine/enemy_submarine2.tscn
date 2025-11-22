@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://btqaelx34cgs1"]
+[gd_scene load_steps=5 format=3 uid="uid://b4ucy2r43jip8"]
 
-[ext_resource type="Script" uid="uid://dbmsc52nbx8pw" path="res://MainGame/Entities/enemySubmarine/enemySubmarine.gd" id="1_w8bhb"]
-[ext_resource type="Texture2D" uid="uid://crlk8hnkn72jl" path="res://MainGame/Entities/enemySubmarine/EnemySubmarine.png" id="2_48osm"]
+[ext_resource type="Script" uid="uid://rbna2ht67d5u" path="res://MainGame/Entities/enemySubmarine/enemySubmarine2.gd" id="1_x78jk"]
+[ext_resource type="Texture2D" uid="uid://crlk8hnkn72jl" path="res://MainGame/Entities/enemySubmarine/EnemySubmarine.png" id="2_fwoj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kopn"]
-size = Vector2(445.086, 119)
+size = Vector2(468.511, 119)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8vg08"]
 radius = 79.0
@@ -15,34 +15,36 @@ height = 238.0
 [node name="enemySubmarine" type="CharacterBody2D" parent="." groups=["Enemies", "EnemySubmarine"]]
 scale = Vector2(0.298819, 0.328749)
 collision_layer = 2
-collision_mask = 24
-script = ExtResource("1_w8bhb")
+collision_mask = 59
+script = ExtResource("1_x78jk")
 
 [node name="shootPos" type="Node2D" parent="enemySubmarine"]
 position = Vector2(107.088, 118.632)
 
 [node name="Sprite2D" type="Sprite2D" parent="enemySubmarine"]
-texture = ExtResource("2_48osm")
+texture = ExtResource("2_fwoj6")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemySubmarine"]
-position = Vector2(-3.34651, 36.6633)
+position = Vector2(-3.34651, 33.4602)
 shape = SubResource("RectangleShape2D_0kopn")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="enemySubmarine"]
-position = Vector2(26.7721, -60.8367)
+position = Vector2(-30.1186, -60.8367)
 shape = SubResource("CapsuleShape2D_8vg08")
 
 [node name="Hitbox" type="Area2D" parent="enemySubmarine"]
-position = Vector2(-1.79249, -9.92036)
+position = Vector2(4.90053, -6.87852)
 collision_layer = 16
 collision_mask = 59
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemySubmarine/Hitbox" groups=["Enemies", "EnemySubmarine"]]
-position = Vector2(-3.22727, 45.6275)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemySubmarine/Hitbox"]
+position = Vector2(-11.5935, 40.5)
+scale = Vector2(1, 0.999999)
 shape = SubResource("RectangleShape2D_0kopn")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="enemySubmarine/Hitbox"]
-position = Vector2(28.5645, -50.9163)
+position = Vector2(-35.0191, -50.9163)
 shape = SubResource("CapsuleShape2D_8vg08")
 
 [connection signal="body_entered" from="enemySubmarine/Hitbox" to="enemySubmarine" method="_on_hitbox_body_entered"]

@@ -1,44 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnwr45mmjvf0g"]
+[gd_scene load_steps=5 format=3 uid="uid://dh3d6mf0b1fo7"]
 
-[ext_resource type="Script" uid="uid://e8i14ele8tro" path="res://MainGame/Entities/enemySubmarine/enemyProjectile.gd" id="1_68eq7"]
-[ext_resource type="Texture2D" uid="uid://cvqbgdavvpink" path="res://MainGame/Entities/Submarine/Missile-Photoroom.png" id="2_d0t8b"]
+[ext_resource type="Script" uid="uid://brkkqsf5vbr01" path="res://MainGame/Entities/enemySubmarine/enemyProjectile2.gd" id="1_2f1wg"]
+[ext_resource type="Texture2D" uid="uid://cvqbgdavvpink" path="res://MainGame/Entities/Submarine/Missile-Photoroom.png" id="2_1tc2s"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uvdew"]
-a = Vector2(-5, -6)
-b = Vector2(5, 0)
+a = Vector2(-5, -5)
+b = Vector2(-13, 2)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o0ttq"]
-a = Vector2(17, 13)
+a = Vector2(15, 25)
 b = Vector2(7, 18)
 
 [node name="Projectile" type="CharacterBody2D" groups=["Enemies", "Projectile"]]
-position = Vector2(154, 292)
 collision_layer = 16
-collision_mask = 58
-script = ExtResource("1_68eq7")
+collision_mask = 0
+script = ExtResource("1_2f1wg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0737304, 0.0795898)
-texture = ExtResource("2_d0t8b")
+texture = ExtResource("2_1tc2s")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(24, 1)
+position = Vector2(-18, 0)
 shape = SubResource("SegmentShape2D_uvdew")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(12, -12)
+position = Vector2(-38, -18)
 shape = SubResource("SegmentShape2D_o0ttq")
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
+collision_mask = 59
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(24, 1)
+position = Vector2(-18, 0)
 shape = SubResource("SegmentShape2D_uvdew")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(12, -12)
+position = Vector2(-38, -18)
 shape = SubResource("SegmentShape2D_o0ttq")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

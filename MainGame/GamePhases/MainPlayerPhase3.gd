@@ -52,6 +52,7 @@ func reset_divers():
 		print("Entregou: ", diver_counter, " mergulhadores.")
 	elif diver_counter < 6 and diver_counter > 0:
 		if looseDiver == false:
+			
 			set_diver(diver_counter - 1)
 			looseDiver = true
 
@@ -104,10 +105,8 @@ func player_death():
 	await get_tree().create_timer(1.5).timeout
 	if GameStartRoutine.gameLife == 0:
 		get_tree().change_scene_to_file("res://Menu/LoserMenu/LoserMenu.tscn")
-		
 	else:
 		get_tree().change_scene_to_file("res://Menu/DeathMenu/DeathMenu.tscn")
-	GameStartRoutine.oxygenCount = 100
 	queue_free()
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:	
@@ -125,8 +124,10 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			pass
 
 func changePhase():
-	GameStartRoutine.gamePhase = 2
-	get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase2.tscn")
+	get_tree().change_scene_to_file("res://Menu/WonMenu/WonMenu.tscn")
+
+
+
 
 func set_diver(new_diver_count: int) -> void:
 	diver_counter = new_diver_count
@@ -135,7 +136,7 @@ func set_diver(new_diver_count: int) -> void:
 func update_diver_ui():
 	if not is_instance_valid(diver_label):
 		return
-	var template = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img][color=black][font_size=36]{contagem}[/font_size][/color] [color=black][font_size=32]X[/font_size][/color]"
+	var template = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img][color=white][font_size=36]{contagem}[/font_size][/color] [color=white][font_size=32]X[/font_size][/color]"
 	diver_label.text = template.format({
 		"contagem": str(diver_counter)
 	})
@@ -143,7 +144,7 @@ func update_diver_ui():
 func update_life_ui():
 	if not is_instance_valid(life_label):
 		return
-	var template = "[img=100]res://MainGame/MainGameEssentials/Iron_heart.png[/img][color=black][font_size=36]{contagem}[/font_size][/color] [color=black][font_size=32]X[/font_size][/color]"
+	var template = "[img=100]res://MainGame/MainGameEssentials/Iron_heart.png[/img][color=white][font_size=36]{contagem}[/font_size][/color] [color=white][font_size=32]X[/font_size][/color]"
 	life_label.text = template.format({
 		"contagem": str(GameStartRoutine.gameLife)
 	})
@@ -151,7 +152,7 @@ func update_life_ui():
 func update_oxygen_ui():
 	if not is_instance_valid(oxygen_label):
 		return
-	var template = "[img=100]res://MainGame/MainGameEssentials/Oxygen_tank.png[/img][color=black][font_size=36]{contagem}[/font_size][/color][color=black][font_size=36]/100[/font_size][/color]"
+	var template = "[img=100]res://MainGame/MainGameEssentials/Oxygen_tank.png[/img][color=white][font_size=36]{contagem}[/font_size][/color] [color=white][font_size=36]/100[/font_size][/color]"
 	var oxygen_int = int(GameStartRoutine.oxygenCount)
 	oxygen_label.text = template.format({
 		"contagem": str(oxygen_int)

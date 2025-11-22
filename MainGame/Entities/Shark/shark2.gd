@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		if area and area.is_in_group("Diver"):
 			if area.has_method("diver_death"):
 				area.diver_death()
-		if body is CharacterBody2D and body.is_in_group("Enemies") and flipCount == 0:
+		if body is CharacterBody2D and body.is_in_group("Shark") and flipCount == 0:
 			direction *= -1
 			shark_sprite.flip_h = (direction == 1)
 			global_position.x -= 50
@@ -42,7 +42,8 @@ func shark_death():
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Projectile"):
+		body.queue_free()
 		if !sharkHitted:
 			shark_death()
 			if body.is_in_group("Player"):
-				GameStartRoutine.scoreCount += 100 
+				GameStartRoutine.add_score(100) 

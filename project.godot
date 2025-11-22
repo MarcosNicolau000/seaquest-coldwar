@@ -29,6 +29,7 @@ window/size/viewport_width=1280
 Enemies=""
 Shark=""
 Player=""
+EnemySubmarine=""
 
 [input]
 

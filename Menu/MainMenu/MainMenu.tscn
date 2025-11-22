@@ -121,12 +121,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -399.0
 offset_top = -279.0
-offset_right = 399.0
+offset_right = 426.0
 offset_bottom = -131.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "Seaquest: Coldwar"
+text = "Seaquest: Coldwar
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
