@@ -11,8 +11,7 @@ func _ready():
 
 
 func _on_iniciar_pressed() -> void:
-	#get_tree().change_scene_to_file("res://MainGame/MainGameEssentials/MainGame.tscn")
-	get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase3.tscn")
+	get_tree().change_scene_to_file("res://MainGame/MainGameEssentials/MainGame.tscn")
 
 	
 func _on_opcoes_pressed() -> void:
