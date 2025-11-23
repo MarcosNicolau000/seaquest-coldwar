@@ -9,8 +9,8 @@ var elapsedTime = 0
 var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn")
 
 var looseDiver = false
-var diver_counter: int = 5
-var diveWaveCount = 2
+var diver_counter: int = 0
+var diveWaveCount = 0
 const max_divers = 6
 
 

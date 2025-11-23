@@ -9,8 +9,8 @@ var elapsedTime = 0
 var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn")
 
 var looseDiver = false
-var diver_counter: int = 5
-var diveWaveCount = 2
+var diver_counter: int = 0
+var diveWaveCount = 0
 const max_divers = 6
 
 
@@ -121,6 +121,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			pass
 
 func changePhase():
+	GameStartRoutine.gamePhase = 3
 	get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase3.tscn")
 	
 

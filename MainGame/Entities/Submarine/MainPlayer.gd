@@ -9,8 +9,8 @@ var elapsedTime = 0
 var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn")
 
 var looseDiver = false
-var diver_counter: int = 5
-var diveWaveCount = 2
+var diver_counter: int = 0
+var diveWaveCount = 0
 const max_divers = 6
 
 
@@ -35,6 +35,7 @@ func _physics_process(delta) -> void:
 	if Input.is_action_pressed("ui_accept") and fire_timer <= 0:
 		fire()
 	move_and_slide()
+	print(GameStartRoutine.gamePhase)
 	if global_position.y <= OXYGEN_AREA:
 		reset_divers()
 	else:
@@ -104,6 +105,7 @@ func player_death():
 		get_tree().change_scene_to_file("res://Menu/LoserMenu/LoserMenu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://Menu/DeathMenu/DeathMenu.tscn")
+	GameStartRoutine.oxygenCount = 100
 	queue_free()
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:	
@@ -121,6 +123,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			pass
 
 func changePhase():
+	GameStartRoutine.gamePhase = 2
 	get_tree().change_scene_to_file("res://MainGame/GamePhases/Phase2.tscn")
 	
 
