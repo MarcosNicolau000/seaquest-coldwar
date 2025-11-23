@@ -11,13 +11,16 @@ func _process(delta: float) -> void:
 	var player = $"../Player"
 	if not is_instance_valid(player):
 		return
-	if player.global_position.y <= OXYGEN_AREA:
-		if GameStartRoutine.oxygenCount < 100:
-			GameStartRoutine.oxygenCount += delta*15
+	if !MainPlayer.playerHitted:
+		if player.global_position.y <= OXYGEN_AREA:
+			if GameStartRoutine.oxygenCount < 100:
+				GameStartRoutine.oxygenCount += delta*15
+				player.update_oxygen_ui()
+		else:
+			GameStartRoutine.oxygenCount -= delta * 3
 			player.update_oxygen_ui()
-	else:
-		GameStartRoutine.oxygenCount -= delta * 3
-		player.update_oxygen_ui()
 	if GameStartRoutine.oxygenCount <= 0:
 		player.player_death()
+		player.update_oxygen_ui()
+
 		GameStartRoutine.isGameRunning = false

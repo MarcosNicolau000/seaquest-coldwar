@@ -11,9 +11,7 @@ var projectile_path = preload("res://MainGame/Entities/Submarine/projectile.tscn
 
 var looseDiver = false
 var diver_counter: int = 0
-var diveWaveCount = 0
 const max_divers = 6
-var diverGoal = 0
 
 const fire_cooldown = 0.5
 var fire_timer = 0.0
@@ -45,12 +43,12 @@ func _physics_process(delta) -> void:
 
 func reset_divers():
 	if diver_counter == 6:
-		diverGoal += 6
+		GameStartRoutine.diverGoal += 6
 		GameStartRoutine.add_score(1000)
 		Statistics.add_rescued_diver()
 		set_diver(0)
-		diveWaveCount += 1
-		if diveWaveCount == 3:
+		GameStartRoutine.diveWaveCount += 1
+		if GameStartRoutine.diveWaveCount == 3:
 			changePhase()
 		print("Entregou: ", diver_counter, " mergulhadores.")
 	elif diver_counter < 6 and diver_counter > 0:
@@ -70,7 +68,8 @@ func fire():
 		get_parent().add_child(projectile)
 
 func _process(delta: float) -> void:
-	playerMovementKeyboard(delta)
+	if !playerHitted:
+		playerMovementKeyboard(delta)
 	
 func disableHitbox():
 	if has_node("Hurtbox"):
@@ -98,10 +97,24 @@ func playerMovementKeyboard(delta):
 	position += movement * speed * delta
 
 func player_death():
+	if playerHitted:
+		return
 	playerHitted = true
+	disableHitbox()
 	var deathEffect = explosion.instantiate() as Node2D
 	deathEffect.global_position = global_position
 	get_parent().add_child(deathEffect)
+	await deathEffect
+	diver_counter = 0
+	update_diver_ui()
+	update_oxygen_ui()
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.05)
+	tween.tween_property(self, "modulate:a", 1.0, 0.1)	
+	tween.tween_property(self, "modulate:a", 0.0, 0.4)
+	tween.tween_property(self, "modulate:a", 1.0, 0.05)	
+	await tween.finished
+	await get_tree().create_timer(0.5).timeout
 	GameStartRoutine.gameLife -=1
 	Statistics.add_death()
 	update_life_ui()
@@ -110,7 +123,8 @@ func player_death():
 	if GameStartRoutine.gameLife == 0:
 		get_tree().change_scene_to_file("res://Menu/LoserMenu/LoserMenu.tscn")
 	else:
-		get_tree().change_scene_to_file("res://Menu/DeathMenu/DeathMenu.tscn")
+		get_tree().reload_current_scene()
+	GameStartRoutine.oxygenCount = 100
 	queue_free()
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:	
@@ -142,7 +156,7 @@ func update_diver_ui():
 	diver_label.text = template.format({
 		"contagem": str(diver_counter)
 	})
-	$"../diversGoal".text = "Meta: " + str(diverGoal) + "/18"
+	$"../diversGoal".text = "Meta: " + str(GameStartRoutine.diverGoal) + "/18"
 
 func update_life_ui():
 	if not is_instance_valid(life_label):

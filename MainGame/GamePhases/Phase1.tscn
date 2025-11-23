@@ -19,7 +19,6 @@
 
 [ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/Entities/spawnerDiver.gd" id="14_r6div"]
 [ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/Entities/spawnerDiver2.gd" id="15_04vdy"]
->>>>>>> Stashed changes
 [ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="16_3t0wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]

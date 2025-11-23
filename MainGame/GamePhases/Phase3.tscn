@@ -42,8 +42,8 @@ metadata/_edit_vertical_guides_ = [1282.0]
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Night" type="Sprite2D" parent="Background"]
-position = Vector2(718, 240)
-scale = Vector2(0.99349, 0.791016)
+position = Vector2(718, 245)
+scale = Vector2(0.99349, 0.800781)
 texture = ExtResource("2_wc7s0")
 
 [node name="GameStart" type="Node" parent="."]

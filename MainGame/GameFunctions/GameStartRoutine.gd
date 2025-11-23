@@ -5,7 +5,10 @@ var elapsed_time = 0.0
 var scoreCount: int = 0
 var gameLife = 3
 var gamePhase = 0
+var diveWaveCount = 0
 var oxygenCount = 100
+var diverGoal = 0
+
 signal score_updated(new_score)
 
 
