@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://MainGame/Entities/Shark/shark.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://MainGame/Entities/Shark/SpriteShark.png" id="2_epypp"]
-[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn" id="3_epypp"]
+[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn.tscn" id="3_epypp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(55, 38.75)

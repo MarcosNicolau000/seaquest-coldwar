@@ -8,10 +8,13 @@ size = Vector2(410, 54)
 
 [node name="Destroyer" type="Node2D"]
 
-[node name="Destroyer" type="CharacterBody2D" parent="." groups=["Enemies"]]
+[node name="Destroyer" type="CharacterBody2D" parent="." groups=["Enemies", "Frigate"]]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 8
 script = ExtResource("1_fscfc")
+
+[node name="shootPos" type="Node2D" parent="Destroyer"]
+position = Vector2(-1, 63)
 
 [node name="Sprite2D" type="Sprite2D" parent="Destroyer"]
 scale = Vector2(0.38926, 0.504208)
@@ -23,8 +26,8 @@ shape = SubResource("RectangleShape2D_4ksob")
 
 [node name="Hitbox" type="Area2D" parent="Destroyer"]
 position = Vector2(-2, -24)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 16
+collision_mask = 59
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Destroyer/Hitbox"]
 position = Vector2(-1, 26)

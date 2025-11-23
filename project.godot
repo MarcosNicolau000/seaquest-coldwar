@@ -19,6 +19,7 @@ config/icon="res://MainGame/icon.svg"
 
 GameStartRoutine="*res://MainGame/GameFunctions/GameStartRoutine.gd"
 MainPlayer="*res://MainGame/Entities/Submarine/MainPlayer.gd"
+Statistics="*res://Statistics.gd"
 
 [display]
 
@@ -29,6 +30,7 @@ window/size/viewport_width=1280
 Enemies=""
 Shark=""
 Player=""
+EnemySubmarine=""
 
 [input]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjfrwdv7l6cgq"]
+[gd_scene load_steps=26 format=3 uid="uid://bcfw0853adrhn"]
 
 [ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://MainGame/Entities/Submarine/submarino2.png" id="2_bqqt8"]
 [ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="2_fmpgn"]
@@ -7,15 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://MainGame/Entities/Shark/SpriteShark.png" id="3_ws5ob"]
 [ext_resource type="Texture2D" uid="uid://bmbnmrnuc1xym" path="res://MainGame/Background/Clouds.png" id="4_d3y3c"]
 [ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://MainGame/Entities/Shark/spawner.gd" id="5_8qpgq"]
-[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn" id="5_pv6b4"]
+[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn.tscn" id="5_pv6b4"]
 [ext_resource type="Texture2D" uid="uid://c1d285pcilmjd" path="res://MainGame/Background/Ship.png" id="5_ymia7"]
 [ext_resource type="Script" uid="uid://btrjg0hsjqo1v" path="res://MainGame/Entities/Shark/spawner_2.gd" id="8_fmpgn"]
 [ext_resource type="Texture2D" uid="uid://dpr3y3sdjnxwv" path="res://MainGame/Background/Sea.png" id="9_mtwmo"]
 [ext_resource type="Texture2D" uid="uid://crow0ng10ixfx" path="res://MainGame/Background/Sky.png" id="10_d3y3c"]
-[ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/Entities/Diver/spawnerDiver.gd" id="13_rvr5t"]
 [ext_resource type="Script" uid="uid://q5woc8nrke" path="res://MainGame/Entities/Frigate/spawnerDestroyer.gd" id="13_u8d18"]
-[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/Entities/Diver/spawnerDiver2.gd" id="14_l23oj"]
+[ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/Entities/Diver/spawnerDiver.gd" id="14_u8d18"]
 [ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="15_01f1a"]
+[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/Entities/Diver/spawnerDiver2.gd" id="15_s1m00"]
+[ext_resource type="FontFile" uid="uid://cc8ga0ounv6ss" path="res://MainGame/MainGameEssentials/alagard.ttf" id="16_ipjxi"]
+[ext_resource type="Script" path="res://MainGame/MainGameEssentials/scoreUI.gd" id="16_mky77"]
+[ext_resource type="Texture2D" uid="uid://cdoe3pqir00c3" path="res://MainGame/MainGameEssentials/Score_HUD.png" id="17_s1m00"]
+[ext_resource type="FontFile" uid="uid://bvvyyb512cnuw" path="res://MainGame/MainGameEssentials/Pixeled English Font.ttf" id="18_tarl8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
 size = Vector2(142.5, 41.5)
@@ -58,6 +62,9 @@ position = Vector2(638, 435)
 scale = Vector2(2.24306, 1.29012)
 texture = ExtResource("5_ymia7")
 
+[node name="GameOxygen" type="Node" parent="."]
+script = ExtResource("15_01f1a")
+
 [node name="GameStart" type="Node" parent="."]
 script = ExtResource("2_fmpgn")
 
@@ -68,8 +75,8 @@ script = ExtResource("2_fmpgn")
 top_level = true
 light_mask = 512
 visibility_layer = 512
-position = Vector2(154, 292)
-collision_mask = 21
+position = Vector2(220, 298)
+collision_mask = 52
 script = ExtResource("2_ws5ob")
 
 [node name="shootPos" type="Node2D" parent="Player"]
@@ -81,22 +88,20 @@ texture = ExtResource("2_bqqt8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(7.62939e-06, 13.109)
 shape = SubResource("RectangleShape2D_8qpgq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(10, -28.391)
 shape = SubResource("RectangleShape2D_pv6b4")
 
 [node name="Hurtbox" type="Area2D" parent="Player"]
-collision_layer = 33
-collision_mask = 35
+collision_layer = 8
+collision_mask = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hurtbox"]
-position = Vector2(-1.25, 14)
+position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_8qpgq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/Hurtbox"]
@@ -248,8 +253,8 @@ ignore_time_scale = true
 
 [node name="SpawnerDivers" type="Node2D" parent="."]
 visible = false
-position = Vector2(-937, 446)
-script = ExtResource("13_rvr5t")
+position = Vector2(855, 447)
+script = ExtResource("14_u8d18")
 
 [node name="SpawnPoints2" type="Node2D" parent="SpawnerDivers"]
 position = Vector2(10, -4)
@@ -282,9 +287,8 @@ autostart = true
 ignore_time_scale = true
 
 [node name="SpawnerDivers2" type="Node2D" parent="."]
-visible = false
-position = Vector2(668, 436)
-script = ExtResource("14_l23oj")
+position = Vector2(-851, 408)
+script = ExtResource("15_s1m00")
 
 [node name="SpawnPoints2" type="Node2D" parent="SpawnerDivers2"]
 position = Vector2(10, -4)
@@ -316,21 +320,71 @@ wait_time = 10.0
 autostart = true
 ignore_time_scale = true
 
+[node name="lifeUI" type="RichTextLabel" parent="."]
+offset_left = -15.0
+offset_top = -7.0
+offset_right = 369.0
+offset_bottom = 148.0
+theme_override_fonts/normal_font = ExtResource("16_ipjxi")
+bbcode_enabled = true
+text = "[img=130]res://MainGame/MainGameEssentials/Iron_heart.png[/img]  [color=black][font_size=32]X[/font_size][/color]
+"
+
+[node name="oxygenUI" type="RichTextLabel" parent="."]
+offset_left = 121.0
+offset_top = -9.0
+offset_right = 735.0
+offset_bottom = 173.0
+theme_override_fonts/normal_font = ExtResource("16_ipjxi")
+bbcode_enabled = true
+text = "[img=100]res://MainGame/MainGameEssentials/Oxygen_tank.png[/img][color=black][font_size=36]{contagem}[/font_size][/color] [color=black][font_size=36]/100[/font_size][/color]"
+
 [node name="diverUI" type="RichTextLabel" parent="."]
 offset_left = 1122.0
 offset_top = 1.0
 offset_right = 1327.0
 offset_bottom = 104.0
+theme_override_fonts/normal_font = ExtResource("16_ipjxi")
 bbcode_enabled = true
 text = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img]  [color=black][font_size=32]X[/font_size][/color]
 "
 
-[node name="lifeUI" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="diversGoal" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 1198.0
+offset_top = 78.0
+offset_right = 1317.0
+offset_bottom = 118.0
+scale = Vector2(0.97606, 1.33715)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("16_ipjxi")
+bbcode_enabled = true
 
-[node name="GameOxygen" type="Node" parent="."]
-script = ExtResource("15_01f1a")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("16_mky77")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+offset_left = 548.0
+offset_top = -27.0
+offset_right = 1572.0
+offset_bottom = 997.0
+scale = Vector2(0.169081, 0.140682)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("17_s1m00")
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 384.431
+offset_top = 504.684
+offset_right = 439.431
+offset_bottom = 553.684
+scale = Vector2(6.4143, 10.2733)
+theme_override_fonts/font = ExtResource("18_tarl8")
+text = "00000
+"
 
 [connection signal="area_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_body_entered"]

@@ -26,7 +26,10 @@ func shark_death():
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Projectile"):
+		body.queue_free()
 		if !sharkHitted:
 			shark_death()
 		if body.is_in_group("Player"):
-			GameStartRoutine.scoreCount += 100
+			Statistics.add_shark()
+			GameStartRoutine.add_score(100)
+ 

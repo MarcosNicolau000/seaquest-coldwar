@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2e3s0itjhrbg"]
+
+[ext_resource type="Script" uid="uid://vnu21rjvpcpv" path="res://MainGame/Entities/Frigate/frigate_projectile.gd" id="1_ad7j3"]
+[ext_resource type="Texture2D" uid="uid://bn8g83b1s6g3o" path="res://MainGame/Entities/Frigate/Frigate_missile.png" id="2_tnfdf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o434t"]
+size = Vector2(34, 94)
+
+[node name="frigateProjectile" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_ad7j3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.240069, 0.201228)
+texture = ExtResource("2_tnfdf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 6)
+scale = Vector2(1.06021, 1.0464)
+shape = SubResource("RectangleShape2D_o434t")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 59
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-7, 6)
+scale = Vector2(1.06021, 1.0464)
+shape = SubResource("RectangleShape2D_o434t")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

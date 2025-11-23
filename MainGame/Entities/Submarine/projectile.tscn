@@ -13,18 +13,17 @@ b = Vector2(7, 18)
 
 [node name="Projectile" type="CharacterBody2D" groups=["Player", "Projectile"]]
 position = Vector2(154, 292)
-collision_layer = 2
-collision_mask = 2
+collision_mask = 25
 script = ExtResource("1_uvdew")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["Projectile"]]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0737304, 0.0795898)
 texture = ExtResource("2_o0ttq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Projectile"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(24, 1)
 shape = SubResource("SegmentShape2D_uvdew")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["Projectile"]]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(12, -12)
 shape = SubResource("SegmentShape2D_o0ttq")

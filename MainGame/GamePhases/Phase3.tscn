@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dbh1o22gju24i"]
+[gd_scene load_steps=25 format=3 uid="uid://cuj6ismrqox2j"]
 
 [ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="1_eap5h"]
 [ext_resource type="Texture2D" uid="uid://b547ecxl7uwg0" path="res://MainGame/Background/Night.png" id="2_wc7s0"]
@@ -6,13 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://MainGame/Entities/Submarine/submarino2.png" id="7_xvdot"]
 [ext_resource type="Script" uid="uid://djepfgl8c0sxp" path="res://MainGame/Entities/Shark/shark.gd" id="8_ugi10"]
 [ext_resource type="Texture2D" uid="uid://cqiddta3ax6m0" path="res://MainGame/Entities/Shark/SpriteShark.png" id="9_nxefy"]
-[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn" id="10_7gmx8"]
+[ext_resource type="PackedScene" uid="uid://bs0crarlvc04f" path="res://MainGame/MainGameEssentials/hitbox.tscn.tscn" id="10_7gmx8"]
 [ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://MainGame/Entities/Shark/spawner.gd" id="11_iusrn"]
 [ext_resource type="Script" uid="uid://btrjg0hsjqo1v" path="res://MainGame/Entities/Shark/spawner_2.gd" id="12_6fn1e"]
+[ext_resource type="Script" uid="uid://6ov8tne38erg" path="res://MainGame/Entities/enemySubmarine/spawnerSubmarine.gd" id="13_141fd"]
 [ext_resource type="Script" uid="uid://q5woc8nrke" path="res://MainGame/Entities/Frigate/spawnerDestroyer.gd" id="13_nijbk"]
-[ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/MainGameEssentials/spawnerDiver.gd" id="14_t6wum"]
-[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/MainGameEssentials/spawnerDiver2.gd" id="15_5n0mk"]
+[ext_resource type="Script" uid="uid://6c0ic8xxkcph" path="res://MainGame/GamePhases/spawnerSubmarine2.gd" id="14_4fe1n"]
+[ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/Entities/Diver/spawnerDiver.gd" id="14_t6wum"]
+[ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/Entities/Diver/spawnerDiver2.gd" id="15_5n0mk"]
 [ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="16_ed5et"]
+[ext_resource type="Script" uid="uid://dic7iy6emmokx" path="res://MainGame/MainGameEssentials/scoreUI.gd" id="16_mh51t"]
+[ext_resource type="FontFile" uid="uid://bvvyyb512cnuw" path="res://MainGame/MainGameEssentials/Pixeled English Font.ttf" id="17_a6qxr"]
+[ext_resource type="Texture2D" uid="uid://cdoe3pqir00c3" path="res://MainGame/MainGameEssentials/Score_HUD.png" id="17_er0g8"]
+[ext_resource type="FontFile" uid="uid://cc8ga0ounv6ss" path="res://MainGame/MainGameEssentials/alagard.ttf" id="18_er0g8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qpgq"]
 size = Vector2(139, 41.5)
@@ -36,8 +42,8 @@ metadata/_edit_vertical_guides_ = [1282.0]
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Night" type="Sprite2D" parent="Background"]
-position = Vector2(718, 240)
-scale = Vector2(0.99349, 0.791016)
+position = Vector2(718, 245)
+scale = Vector2(0.99349, 0.800781)
 texture = ExtResource("2_wc7s0")
 
 [node name="GameStart" type="Node" parent="."]
@@ -51,7 +57,7 @@ top_level = true
 light_mask = 512
 visibility_layer = 512
 position = Vector2(154, 292)
-collision_mask = 21
+collision_mask = 52
 script = ExtResource("3_wc7s0")
 
 [node name="shootPos" type="Node2D" parent="Player"]
@@ -74,8 +80,8 @@ position = Vector2(10, -28.391)
 shape = SubResource("RectangleShape2D_pv6b4")
 
 [node name="Hurtbox" type="Area2D" parent="Player"]
-collision_layer = 33
-collision_mask = 35
+collision_layer = 8
+collision_mask = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hurtbox"]
 position = Vector2(-1.25, 14)
@@ -91,7 +97,7 @@ shape = SubResource("RectangleShape2D_pv6b4")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D" groups=["Enemies"]]
-position = Vector2(638, -163)
+position = Vector2(641, -135)
 shape = SubResource("RectangleShape2D_v3hs3")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Border"]
@@ -229,8 +235,7 @@ autostart = true
 ignore_time_scale = true
 
 [node name="SpawnerDivers" type="Node2D" parent="."]
-visible = false
-position = Vector2(-937, 446)
+position = Vector2(749, 405)
 script = ExtResource("14_t6wum")
 
 [node name="SpawnPoints2" type="Node2D" parent="SpawnerDivers"]
@@ -265,7 +270,7 @@ ignore_time_scale = true
 
 [node name="SpawnerDivers2" type="Node2D" parent="."]
 visible = false
-position = Vector2(668, 436)
+position = Vector2(-940, 404)
 script = ExtResource("15_5n0mk")
 
 [node name="SpawnPoints2" type="Node2D" parent="SpawnerDivers2"]
@@ -298,18 +303,114 @@ wait_time = 10.0
 autostart = true
 ignore_time_scale = true
 
+[node name="SpawnerSubmarine" type="Node2D" parent="."]
+visible = false
+position = Vector2(-937, 446)
+script = ExtResource("13_141fd")
+
+[node name="SpawnPoints" type="Node2D" parent="SpawnerSubmarine"]
+position = Vector2(10, -4)
+
+[node name="Spawn 1" type="Marker2D" parent="SpawnerSubmarine/SpawnPoints"]
+position = Vector2(665, -181)
+rotation = -0.00275528
+
+[node name="Spawn 2" type="Marker2D" parent="SpawnerSubmarine/SpawnPoints"]
+position = Vector2(684, 66)
+
+[node name="Spawn 3" type="Marker2D" parent="SpawnerSubmarine/SpawnPoints"]
+position = Vector2(672, -58)
+
+[node name="Timer" type="Timer" parent="SpawnerSubmarine"]
+wait_time = 15.0
+autostart = true
+ignore_time_scale = true
+
+[node name="SpawnerSubmarine2" type="Node2D" parent="."]
+position = Vector2(840, 405)
+script = ExtResource("14_4fe1n")
+
+[node name="SpawnPoints" type="Node2D" parent="SpawnerSubmarine2"]
+position = Vector2(10, -4)
+
+[node name="Spawn 1" type="Marker2D" parent="SpawnerSubmarine2/SpawnPoints"]
+position = Vector2(665, -181)
+rotation = -0.00275528
+
+[node name="Spawn 2" type="Marker2D" parent="SpawnerSubmarine2/SpawnPoints"]
+position = Vector2(684, 66)
+
+[node name="Spawn 3" type="Marker2D" parent="SpawnerSubmarine2/SpawnPoints"]
+position = Vector2(672, -58)
+
+[node name="Timer" type="Timer" parent="SpawnerSubmarine2"]
+wait_time = 15.0
+autostart = true
+ignore_time_scale = true
+
 [node name="diverUI" type="RichTextLabel" parent="."]
 offset_left = 1122.0
 offset_top = 1.0
 offset_right = 1327.0
 offset_bottom = 104.0
+theme_override_fonts/normal_font = ExtResource("18_er0g8")
 bbcode_enabled = true
 text = "[img=100]res://MainGame/Entities/Diver/Mergulhador.png[/img]  [color=black][font_size=32]X[/font_size][/color]
 "
 
 [node name="lifeUI" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 302.0
+offset_bottom = 136.0
+theme_override_fonts/normal_font = ExtResource("18_er0g8")
+bbcode_enabled = true
+text = "[img=130]res://MainGame/MainGameEssentials/Iron_heart.png[/img]  [color=black][font_size=32]X[/font_size][/color]
+"
+
+[node name="oxygenUI" type="RichTextLabel" parent="."]
+offset_left = 152.0
+offset_top = 5.0
+offset_right = 766.0
+offset_bottom = 187.0
+theme_override_fonts/normal_font = ExtResource("18_er0g8")
+bbcode_enabled = true
+text = "[img=100]res://MainGame/MainGameEssentials/Oxygen_tank.png[/img][color=white][font_size=36]{contagem}[/font_size][/color] [color=white][font_size=36]/100[/font_size][/color]"
+
+[node name="diversGoal" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 1198.0
+offset_top = 78.0
+offset_right = 1317.0
+offset_bottom = 118.0
+scale = Vector2(0.97606, 1.33715)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("18_er0g8")
+bbcode_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("16_mh51t")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+offset_left = 548.0
+offset_top = -27.0
+offset_right = 1572.0
+offset_bottom = 997.0
+scale = Vector2(0.169081, 0.140682)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("17_er0g8")
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 384.431
+offset_top = 504.684
+offset_right = 439.431
+offset_bottom = 553.684
+scale = Vector2(6.4143, 10.2733)
+theme_override_fonts/font = ExtResource("17_a6qxr")
+text = "00000
+"
 
 [node name="GameOxygen" type="Node" parent="."]
 script = ExtResource("16_ed5et")
@@ -321,3 +422,5 @@ script = ExtResource("16_ed5et")
 [connection signal="timeout" from="SpawnerDestroyer/Timer" to="SpawnerDestroyer" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnerDivers/Timer" to="SpawnerDivers" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnerDivers2/Timer" to="SpawnerDivers2" method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnerSubmarine/Timer" to="SpawnerSubmarine" method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnerSubmarine2/Timer" to="SpawnerSubmarine2" method="_on_timer_timeout"]

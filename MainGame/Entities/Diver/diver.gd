@@ -1,10 +1,10 @@
 extends Area2D
 
 const SPEED = 150.0
-var direction = Vector2(1, 0)
+var direction = Vector2(-1, 0)
 var blood = preload("res://MainGame/Effects/blood.tscn")
 var diverHitted = false
-
+	
 func _physics_process(delta: float) -> void:
 	position += direction * SPEED * delta
 
@@ -16,6 +16,6 @@ func diver_death():
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemies"):
+	if body.is_in_group("Shark"):
 		if !diverHitted:
 			diver_death()
