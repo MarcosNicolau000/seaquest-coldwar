@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://deltdgbei8vya"]
+[gd_scene load_steps=15 format=3 uid="uid://deltdgbei8vya"]
 
 [ext_resource type="Texture2D" uid="uid://c2atwwj73mlwl" path="res://Menu/MainMenu/marine-art-painting-submarine-thumb1920.jpg" id="1_7mpft"]
 [ext_resource type="Script" uid="uid://dh4025anm2dmj" path="res://Menu/MainMenu/main_menu.gd" id="1_gxqt3"]
 [ext_resource type="FontFile" uid="uid://bvvyyb512cnuw" path="res://MainGame/MainGameEssentials/Pixeled English Font.ttf" id="3_eqvia"]
 [ext_resource type="Script" uid="uid://k6clu6v4ea3r" path="res://Menu/MainMenu/audio_control.gd" id="3_gxqt3"]
-[ext_resource type="Script" uid="uid://b1wf82lafy0ef" path="res://Menu/MainMenu/full_screen_control.gd" id="4_ddfq2"]
 [ext_resource type="Texture2D" uid="uid://bncahg5fxq04g" path="res://Menu/MainMenu/Menu_frame_pressed.png" id="4_eqvia"]
 [ext_resource type="AudioStream" uid="uid://dckp30ibo5ir" path="res://MainGame/Music/CrystalCavern.ogg" id="4_g1ub3"]
 [ext_resource type="Texture2D" uid="uid://b7nku6qmki57t" path="res://Menu/MainMenu/Menu_frame.png" id="4_iopbn"]
@@ -139,16 +138,16 @@ anchor_bottom = 0.5
 offset_left = -227.0
 offset_top = -148.0
 offset_right = 217.0
-offset_bottom = 236.0
+offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Voltar" type="Button" parent="Menu opçoes"]
 layout_mode = 2
 offset_left = 84.0
-offset_top = 292.0
+offset_top = 184.0
 offset_right = 370.0
-offset_bottom = 361.0
+offset_bottom = 253.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_eqvia")
@@ -164,12 +163,13 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -215.0
+offset_top = 18.0
 offset_right = 215.0
-offset_bottom = 66.0
+offset_bottom = 84.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_eqvia")
 theme_override_font_sizes/font_size = 25
-text = "Options"
+text = "Volume do Som"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -181,9 +181,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -158.0
-offset_top = -101.0
+offset_top = -61.0
 offset_right = 158.0
-offset_bottom = -56.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_7mpft")
@@ -194,24 +194,6 @@ step = 0.05
 value = 1.0
 script = ExtResource("3_gxqt3")
 audio_bus_name = "Music"
-
-[node name="FullScreenControl" type="CheckButton" parent="Menu opçoes"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -198.5
-offset_top = -46.0
-offset_right = 198.5
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_eqvia")
-button_pressed = true
-text = "Tela Cheia"
-script = ExtResource("4_ddfq2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_g1ub3")
@@ -227,4 +209,3 @@ bus = &"Music"
 [connection signal="pressed" from="Menu entrada/Sair" to="Menu entrada/Sair" method="_on_pressed"]
 [connection signal="pressed" from="Menu opçoes/Voltar" to="." method="_on_voltar_pressed"]
 [connection signal="value_changed" from="Menu opçoes/AudioControl" to="Menu opçoes/AudioControl" method="_on_value_changed"]
-[connection signal="toggled" from="Menu opçoes/FullScreenControl" to="Menu opçoes/FullScreenControl" method="_on_toggled"]
