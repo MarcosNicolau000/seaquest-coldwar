@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bcfw0853adrhn"]
+[gd_scene load_steps=25 format=3 uid="uid://bcfw0853adrhn"]
 
 [ext_resource type="Texture2D" uid="uid://dcwplvpctqmwo" path="res://MainGame/Entities/Submarine/submarino2.png" id="2_bqqt8"]
 [ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="2_fmpgn"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://btrjg0hsjqo1v" path="res://MainGame/Entities/Shark/spawner_2.gd" id="8_fmpgn"]
 [ext_resource type="Texture2D" uid="uid://dpr3y3sdjnxwv" path="res://MainGame/Background/Sea.png" id="9_mtwmo"]
 [ext_resource type="Texture2D" uid="uid://crow0ng10ixfx" path="res://MainGame/Background/Sky.png" id="10_d3y3c"]
-[ext_resource type="Script" uid="uid://q5woc8nrke" path="res://MainGame/Entities/Frigate/spawnerDestroyer.gd" id="13_u8d18"]
 [ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/Entities/Diver/spawnerDiver.gd" id="14_u8d18"]
 [ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="15_01f1a"]
 [ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/Entities/Diver/spawnerDiver2.gd" id="15_s1m00"]
@@ -234,23 +233,6 @@ wait_time = 3.0
 autostart = true
 ignore_time_scale = true
 
-[node name="SpawnerDestroyer" type="Node2D" parent="."]
-visible = false
-position = Vector2(1723, 441)
-script = ExtResource("13_u8d18")
-
-[node name="SpawnPoints" type="Node2D" parent="SpawnerDestroyer"]
-position = Vector2(136, -9)
-
-[node name="Spawn 1" type="Marker2D" parent="SpawnerDestroyer/SpawnPoints"]
-position = Vector2(-374, -344)
-rotation = -0.00275528
-
-[node name="Timer" type="Timer" parent="SpawnerDestroyer"]
-wait_time = 20.0
-autostart = true
-ignore_time_scale = true
-
 [node name="SpawnerDivers" type="Node2D" parent="."]
 visible = false
 position = Vector2(855, 447)
@@ -390,6 +372,5 @@ text = "00000
 [connection signal="body_entered" from="Player/Hurtbox" to="Player" method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="SpawnerShark/Timer" to="SpawnerShark" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnerShark2/Timer" to="SpawnerShark2" method="_on_timer_timeout"]
-[connection signal="timeout" from="SpawnerDestroyer/Timer" to="SpawnerDestroyer" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnerDivers/Timer" to="SpawnerDivers" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnerDivers2/Timer" to="SpawnerDivers2" method="_on_timer_timeout"]

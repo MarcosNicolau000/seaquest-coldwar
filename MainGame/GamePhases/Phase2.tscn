@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bmasbspibgaiq"]
+[gd_scene load_steps=23 format=3 uid="uid://bmasbspibgaiq"]
 
 [ext_resource type="Script" uid="uid://d1rs0d0nc1drl" path="res://MainGame/GameFunctions/GameStartRoutine.gd" id="1_504wv"]
 [ext_resource type="Script" uid="uid://duqdxx2ysanlk" path="res://MainGame/GamePhases/MainPlayerPhase2.gd" id="3_8kmty"]
@@ -10,12 +10,10 @@
 [ext_resource type="Script" uid="uid://cma73wb3nbjt4" path="res://MainGame/Entities/Shark/spawner.gd" id="11_qvera"]
 [ext_resource type="Script" uid="uid://btrjg0hsjqo1v" path="res://MainGame/Entities/Shark/spawner_2.gd" id="12_w5wel"]
 [ext_resource type="Script" uid="uid://q5woc8nrke" path="res://MainGame/Entities/Frigate/spawnerDestroyer.gd" id="13_b8orw"]
-[ext_resource type="Script" uid="uid://6ov8tne38erg" path="res://MainGame/Entities/enemySubmarine/spawnerSubmarine.gd" id="14_6j6x4"]
-[ext_resource type="Script" path="res://MainGame/GamePhases/spawnerSubmarine2.gd" id="14_dbq7o"]
 [ext_resource type="Script" uid="uid://drvejxm5ffsb6" path="res://MainGame/Entities/Diver/spawnerDiver.gd" id="14_s733d"]
 [ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/Entities/Diver/spawnerDiver2.gd" id="15_mmr53"]
 [ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="16_5bl1v"]
-[ext_resource type="Script" path="res://MainGame/MainGameEssentials/scoreUI.gd" id="16_mxx3j"]
+[ext_resource type="Script" uid="uid://dic7iy6emmokx" path="res://MainGame/MainGameEssentials/scoreUI.gd" id="16_mxx3j"]
 [ext_resource type="FontFile" uid="uid://bvvyyb512cnuw" path="res://MainGame/MainGameEssentials/Pixeled English Font.ttf" id="17_2jo8m"]
 [ext_resource type="Texture2D" uid="uid://cdoe3pqir00c3" path="res://MainGame/MainGameEssentials/Score_HUD.png" id="17_l7csu"]
 [ext_resource type="FontFile" uid="uid://cc8ga0ounv6ss" path="res://MainGame/MainGameEssentials/alagard.ttf" id="18_l7csu"]
@@ -304,52 +302,6 @@ wait_time = 10.0
 autostart = true
 ignore_time_scale = true
 
-[node name="SpawnerSubmarine" type="Node2D" parent="."]
-visible = false
-position = Vector2(-937, 446)
-script = ExtResource("14_6j6x4")
-
-[node name="SpawnPoints" type="Node2D" parent="SpawnerSubmarine"]
-position = Vector2(10, -4)
-
-[node name="Spawn 1" type="Marker2D" parent="SpawnerSubmarine/SpawnPoints"]
-position = Vector2(665, -181)
-rotation = -0.00275528
-
-[node name="Spawn 2" type="Marker2D" parent="SpawnerSubmarine/SpawnPoints"]
-position = Vector2(684, 66)
-
-[node name="Spawn 3" type="Marker2D" parent="SpawnerSubmarine/SpawnPoints"]
-position = Vector2(672, -58)
-
-[node name="Timer" type="Timer" parent="SpawnerSubmarine"]
-wait_time = 15.0
-autostart = true
-ignore_time_scale = true
-
-[node name="SpawnerSubmarine2" type="Node2D" parent="."]
-visible = false
-position = Vector2(739, 477)
-script = ExtResource("14_dbq7o")
-
-[node name="SpawnPoints" type="Node2D" parent="SpawnerSubmarine2"]
-position = Vector2(10, -4)
-
-[node name="Spawn 1" type="Marker2D" parent="SpawnerSubmarine2/SpawnPoints"]
-position = Vector2(665, -181)
-rotation = -0.00275528
-
-[node name="Spawn 2" type="Marker2D" parent="SpawnerSubmarine2/SpawnPoints"]
-position = Vector2(684, 66)
-
-[node name="Spawn 3" type="Marker2D" parent="SpawnerSubmarine2/SpawnPoints"]
-position = Vector2(672, -58)
-
-[node name="Timer" type="Timer" parent="SpawnerSubmarine2"]
-wait_time = 15.0
-autostart = true
-ignore_time_scale = true
-
 [node name="diverUI" type="RichTextLabel" parent="."]
 offset_left = 1122.0
 offset_top = 1.0
@@ -424,5 +376,3 @@ script = ExtResource("16_5bl1v")
 [connection signal="timeout" from="SpawnerDestroyer/Timer" to="SpawnerDestroyer" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnerDivers/Timer" to="SpawnerDivers" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnerDivers2/Timer" to="SpawnerDivers2" method="_on_timer_timeout"]
-[connection signal="timeout" from="SpawnerSubmarine/Timer" to="SpawnerSubmarine" method="_on_timer_timeout"]
-[connection signal="timeout" from="SpawnerSubmarine2/Timer" to="SpawnerSubmarine2" method="_on_timer_timeout"]

@@ -25,6 +25,8 @@ var playerHitted = false
 
 func _ready() -> void:
 	Statistics.set_process(true)
+	GameStartRoutine.isGameRunning = true
+	update_oxygen_ui()
 	update_diver_ui()
 	update_life_ui()
 
