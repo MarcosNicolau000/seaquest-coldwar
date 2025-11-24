@@ -53,7 +53,6 @@ func reset_divers():
 		GameStartRoutine.diveWaveCount += 1
 		if GameStartRoutine.diveWaveCount == 3:
 			changePhase()
-		print("Entregou: ", diver_counter, " mergulhadores.")
 	elif diver_counter < 6 and diver_counter > 0:
 		if looseDiver == false:
 			Statistics.add_lost_diver()

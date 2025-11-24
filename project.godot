@@ -13,7 +13,7 @@ config_version=5
 config/name="seaquest-coldwar"
 run/main_scene="uid://deltdgbei8vya"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://MainGame/icon.svg"
+config/icon="uid://cou20biy225tc"
 
 [autoload]
 
