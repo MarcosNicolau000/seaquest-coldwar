@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://c668126vb30xs" path="res://MainGame/MainGameEssentials/GameOxygen.gd" id="15_01f1a"]
 [ext_resource type="Script" uid="uid://dkm0n5awc63yy" path="res://MainGame/Entities/Diver/spawnerDiver2.gd" id="15_s1m00"]
 [ext_resource type="FontFile" uid="uid://cc8ga0ounv6ss" path="res://MainGame/MainGameEssentials/alagard.ttf" id="16_ipjxi"]
-[ext_resource type="Script" path="res://MainGame/MainGameEssentials/scoreUI.gd" id="16_mky77"]
+[ext_resource type="Script" uid="uid://dic7iy6emmokx" path="res://MainGame/MainGameEssentials/scoreUI.gd" id="16_mky77"]
 [ext_resource type="Texture2D" uid="uid://cdoe3pqir00c3" path="res://MainGame/MainGameEssentials/Score_HUD.png" id="17_s1m00"]
 [ext_resource type="FontFile" uid="uid://bvvyyb512cnuw" path="res://MainGame/MainGameEssentials/Pixeled English Font.ttf" id="18_tarl8"]
 

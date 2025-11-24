@@ -24,6 +24,7 @@ Statistics="*res://Statistics.gd"
 [display]
 
 window/size/viewport_width=1280
+window/size/resizable=false
 
 [global_group]
 
